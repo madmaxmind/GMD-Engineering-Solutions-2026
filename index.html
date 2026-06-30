@@ -1,0 +1,2271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GMD Engineering Solutions · Diagnóstico, Pasaporte Técnico e Ingeniería Industrial · San Luis Potosí</title>
+<meta name="description" content="GMD Engineering Solutions: Diagnóstico industrial, GMD Machine Passport™, control de activos críticos e ingeniería de implementación para plantas automotrices Tier 1/2 en San Luis Potosí. Reducimos incertidumbre, pérdidas operativas y riesgo técnico.">
+<meta property="og:title" content="GMD Engineering Solutions · Ingeniería para la Continuidad Operativa">
+<meta property="og:description" content="El único punto en el clúster industrial de SLP donde ingeniería mecánica de precisión, metodología propia y documentación técnica se integran en un solo partner estratégico.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ─── TOKENS v3 · CONSOLIDACIÓN ──────────────────────────── */
+:root {
+  --teal:        #D4A745;
+  --teal-dark:   #8B6D12;
+  --teal-deeper: #3D2E08;
+  --teal-light:  #FDF3DC;
+  --gold:        #D4A745;
+  --gold-dark:   #8B6D12;
+  --gold-light:  #FDF3DC;
+  --ink:         #0C0F14;
+  --ink-mid:     #141820;
+  --ink-3:       #1C2130;
+  --text-dark:   #1A202C;
+  --text-mid:    #4A5568;
+  --text-light:  #718096;
+  --border:      #E2E8F0;
+  --border-dark: #252C3A;
+  --surface:     #F7F9FC;
+  --white:       #FFFFFF;
+  --red:         #E53E3E;
+  --red-light:   #FFF5F5;
+  --green:       #15803D;
+  --green-light: #DCFCE7;
+  --accent:      #D4A745;
+}
+
+/* ─── RESET ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--ink);
+  color: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; }
+
+/* ─── SCROLL BAR ─────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 2px; }
+
+/* ─── NAV ────────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  height: 64px;
+  background: rgba(13,17,23,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212,167,69,0.12);
+  transition: background 0.3s;
+}
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.6rem;
+  letter-spacing: 4px;
+  color: var(--teal);
+}
+.nav-logo span {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 2px;
+  display: block;
+  text-transform: uppercase;
+  margin-top: -4px;
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--teal); }
+.nav-cta {
+  background: var(--teal);
+  color: var(--ink) !important;
+  padding: 0.45rem 1.2rem;
+  border-radius: 4px;
+  font-weight: 700 !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 1.5px !important;
+  transition: background 0.2s, transform 0.15s !important;
+}
+.nav-cta:hover { background: #00d8dd !important; transform: translateY(-1px); }
+
+/* ─── HERO ───────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 7rem 3rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 50%, rgba(212,167,69,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,152,42,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--teal);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--teal);
+}
+.hero-h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  line-height: 1.0;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin-bottom: 1.5rem;
+}
+.hero-h1 .accent { color: var(--teal); }
+.hero-h1 .gold { color: var(--gold); }
+.hero-sub {
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.75;
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+}
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--teal);
+  color: var(--ink);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  border-radius: 4px;
+  transition: background 0.2s, transform 0.15s;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary:hover { background: #00d8dd; transform: translateY(-2px); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: rgba(255,255,255,0.8);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+.btn-secondary:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+.hero-proof {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.hero-proof-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.hero-proof-item::before {
+  content: '✓';
+  color: var(--teal);
+  font-weight: 700;
+}
+
+/* PARO COUNTER - la firma del sitio */
+.paro-counter-card {
+  background: rgba(30,37,48,0.8);
+  border: 1px solid rgba(212,167,69,0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+.paro-counter-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red), transparent);
+}
+.paro-counter-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--red);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.paro-counter-sublabel {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 1.5rem;
+}
+.counter-display {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 3rem;
+  color: var(--red);
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 0.3rem;
+  font-variant-numeric: tabular-nums;
+  transition: none;
+}
+.counter-unit {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.counter-desc {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.6;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 1rem;
+}
+.counter-desc strong { color: var(--teal); }
+.counter-reset {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.2);
+  margin-top: 0.8rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.counter-reset:hover { color: var(--teal); }
+
+.hero-clients {
+  max-width: 1200px;
+  margin: 3rem auto 0;
+  width: 100%;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 2rem;
+}
+.hero-clients-label {
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: 1rem;
+}
+.clients-pills {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+.client-pill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.client-pill:hover { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.2); }
+
+/* ─── SECTION WRAPPER ────────────────────────────────────── */
+section { position: relative; }
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 3rem;
+}
+
+.section-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--teal);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.section-eyebrow::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--teal);
+}
+.section-h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+.section-h2 .accent { color: var(--teal); }
+.section-h2 .gold { color: var(--gold); }
+.section-lead {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  max-width: 560px;
+}
+
+/* ─── PAIN / URGENCIA ────────────────────────────────────── */
+.pain-section {
+  background: var(--red-light);
+}
+.pain-section .section-inner {
+  padding: 4rem 3rem;
+}
+.pain-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.pain-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--red);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.pain-note {
+  font-size: 0.7rem;
+  color: #9B2C2C;
+}
+.paro-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+.paro-card {
+  background: white;
+  border-left: 4px solid var(--red);
+  border-radius: 8px;
+  padding: 1.3rem;
+  box-shadow: 0 2px 8px rgba(229,62,62,0.08);
+}
+.paro-tipo {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #9B2C2C;
+  margin-bottom: 0.6rem;
+}
+.paro-rango {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: var(--red);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.paro-mxn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: #9B2C2C;
+}
+
+/* ─── SERVICIOS ──────────────────────────────────────────── */
+.services-section { background: var(--ink); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+  margin-top: 3rem;
+}
+.service-card {
+  background: var(--ink);
+  padding: 2rem;
+  transition: background 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--teal);
+  transition: width 0.3s;
+}
+.service-card:hover { background: var(--ink-mid); }
+.service-card:hover::after { width: 100%; }
+.service-icon {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+.service-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  color: var(--white);
+}
+.service-desc {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.service-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--teal);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid rgba(212,167,69,0.25);
+  border-radius: 3px;
+  display: inline-block;
+}
+.service-tag.gold-tag {
+  color: var(--gold);
+  border-color: rgba(201,152,42,0.25);
+}
+
+.ai-training-section {
+  background:
+    linear-gradient(135deg, rgba(212,167,69,0.09) 0%, rgba(13,17,23,0) 42%),
+    var(--ink-mid);
+}
+.ai-training-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  gap: 3rem;
+  align-items: center;
+}
+.ai-training-copy {
+  max-width: 680px;
+}
+.ai-training-desc {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.62);
+  margin: 1.4rem 0 2rem;
+}
+.ai-training-panel {
+  border: 1px solid rgba(212,167,69,0.22);
+  background: rgba(13,17,23,0.62);
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+}
+.ai-training-panel-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--white);
+  margin-bottom: 1.2rem;
+}
+.ai-training-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: 1.6rem;
+}
+.ai-training-list li {
+  display: flex;
+  gap: 0.75rem;
+  color: rgba(255,255,255,0.68);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+.ai-training-list li::before {
+  content: '->';
+  color: var(--teal);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.ai-training-note {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--gold);
+  font-size: 0.68rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+/* ─── MACHINE PASSPORT HIGHLIGHT ────────────────────────── */
+.passport-section {
+  background: var(--ink-mid);
+}
+.passport-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 3rem;
+}
+.passport-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(201,152,42,0.12);
+  border: 1px solid rgba(201,152,42,0.3);
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.passport-h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-bottom: 1.2rem;
+}
+.passport-h2 span { color: var(--teal); }
+.passport-desc {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.passport-benefits {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 2rem;
+}
+.passport-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.65);
+}
+.passport-benefits li::before {
+  content: '→';
+  color: var(--teal);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* QR visual */
+.qr-visual {
+  background: rgba(13,17,23,0.8);
+  border: 1px solid rgba(212,167,69,0.2);
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  position: relative;
+}
+.qr-visual::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--teal));
+  border-radius: 16px 16px 0 0;
+}
+.qr-box {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+  border: 2px solid rgba(212,167,69,0.4);
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+  padding: 10px;
+  position: relative;
+}
+.qr-cell { background: var(--teal); border-radius: 1px; }
+.qr-cell.e { background: transparent; }
+.qr-arrow {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--teal);
+}
+.qr-tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-align: left;
+}
+.qr-tier {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  background: rgba(255,255,255,0.04);
+  border-left: 3px solid rgba(212,167,69,0.4);
+  border-radius: 0 4px 4px 0;
+  font-size: 0.78rem;
+}
+.qr-tier .tier-price {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 0.9rem;
+}
+.qr-tier.featured {
+  border-left-color: var(--gold);
+  background: rgba(201,152,42,0.08);
+}
+.qr-tier.featured .tier-price { color: var(--gold); }
+.qr-currency-note {
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.25);
+  text-align: center;
+  margin-top: 0.8rem;
+}
+
+/* ROI */
+.roi-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.roi-box {
+  background: rgba(21,128,61,0.08);
+  border: 1px solid rgba(21,128,61,0.2);
+  border-radius: 8px;
+  padding: 1.2rem;
+}
+.roi-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  color: #4ade80;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.roi-label {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.5;
+}
+
+/* ─── MÉTODO GMD ─────────────────────────────────────────── */
+.metodo-section { background: var(--ink); }
+.metodo-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.05);
+  margin-top: 3rem;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.metodo-step {
+  background: var(--ink);
+  padding: 2.5rem 1.8rem;
+  position: relative;
+  transition: background 0.25s;
+}
+.metodo-step:hover { background: var(--ink-mid); }
+.step-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 4rem;
+  color: rgba(212,167,69,0.08);
+  line-height: 1;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
+.step-phase {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--teal);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.step-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+}
+.step-desc {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.step-tool {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: rgba(212,167,69,0.5);
+  letter-spacing: 1px;
+}
+
+/* ─── NEARSHORING BANNER ─────────────────────────────────── */
+.nearshore-banner {
+  background: linear-gradient(135deg, var(--teal-deeper) 0%, #006366 50%, var(--teal-deeper) 100%);
+  border-top: 1px solid rgba(212,167,69,0.2);
+  border-bottom: 1px solid rgba(212,167,69,0.2);
+}
+.nearshore-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+}
+.nearshore-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: rgba(212,167,69,0.6);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+.nearshore-h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 0.8rem;
+}
+.nearshore-desc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  max-width: 560px;
+}
+.nearshore-stat {
+  text-align: center;
+  flex-shrink: 0;
+}
+.nearshore-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 3.5rem;
+  color: var(--teal);
+  line-height: 1;
+}
+.nearshore-unit {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ─── IATF / COMPLIANCE ──────────────────────────────────── */
+.iatf-section { background: var(--ink-mid); }
+.iatf-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.iatf-refs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.iatf-ref {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.2rem;
+  background: rgba(212,167,69,0.05);
+  border-left: 3px solid var(--teal);
+  border-radius: 0 6px 6px 0;
+}
+.iatf-ref-code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--teal);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.iatf-ref-text {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+}
+.audit-score {
+  background: rgba(13,17,23,0.6);
+  border: 1px solid rgba(212,167,69,0.15);
+  border-radius: 12px;
+  padding: 2.5rem;
+  text-align: center;
+}
+.audit-ring {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 12px solid rgba(212,167,69,0.1);
+  border-top-color: var(--teal);
+  border-right-color: var(--teal);
+  border-bottom-color: rgba(212,167,69,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+.audit-ring-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: var(--teal);
+  line-height: 1;
+}
+.audit-ring-label {
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.audit-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+.audit-desc {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.6;
+}
+
+/* ─── DEMO CTA ───────────────────────────────────────────── */
+.demo-section { background: var(--ink); }
+.demo-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4rem;
+  align-items: center;
+}
+.demo-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.demo-label::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+.demo-h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+.demo-h2 span { color: var(--gold); }
+.demo-desc {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+.demo-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+.demo-step {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+}
+.demo-step-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--teal);
+  background: rgba(212,167,69,0.1);
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.demo-cta-box {
+  background: rgba(30,37,48,0.6);
+  border: 1px solid rgba(212,167,69,0.15);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  min-width: 280px;
+  text-align: center;
+}
+.demo-cta-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+.demo-cta-desc {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+.btn-wa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: #25D366;
+  color: white;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.85rem 1.5rem;
+  border-radius: 6px;
+  transition: background 0.2s, transform 0.15s;
+  margin-bottom: 0.8rem;
+  width: 100%;
+}
+.btn-wa:hover { background: #1ebe5d; transform: translateY(-1px); }
+.btn-mail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: transparent;
+  color: rgba(255,255,255,0.5);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: border-color 0.2s, color 0.2s;
+  width: 100%;
+}
+.btn-mail:hover { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); }
+.demo-cta-note {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.2);
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+/* ─── FOUNDER / ABOUT ────────────────────────────────────── */
+.founder-section { background: var(--ink-mid); }
+.founder-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.founder-avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal-deeper), var(--ink));
+  border: 2px solid rgba(212,167,69,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 3rem;
+  color: rgba(212,167,69,0.4);
+  flex-shrink: 0;
+}
+.founder-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.3rem;
+}
+.founder-role {
+  font-size: 0.78rem;
+  color: var(--teal);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.founder-bio {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+.founder-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.founder-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 0.25rem 0.7rem;
+  border-radius: 3px;
+  letter-spacing: 1px;
+}
+
+/* ─── STATS ROW ──────────────────────────────────────────── */
+.stats-row {
+  background: rgba(212,167,69,0.05);
+  border-top: 1px solid rgba(212,167,69,0.1);
+  border-bottom: 1px solid rgba(212,167,69,0.1);
+}
+.stats-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 2.8rem;
+  color: var(--teal);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────── */
+footer {
+  background: #090D12;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 3rem;
+  align-items: start;
+}
+.footer-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 1.8rem;
+  letter-spacing: 4px;
+  color: var(--teal);
+  margin-bottom: 0.5rem;
+}
+.footer-tagline {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.6;
+  max-width: 280px;
+}
+.footer-col-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 1rem;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.footer-links a {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.45);
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--teal); }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.2rem 3rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.2);
+}
+.footer-bottom a { color: rgba(212,167,69,0.5); }
+
+/* ─── MACHINE PASSPORT MOCKUP ───────────────────────────── */
+.mp-mockup {
+  background: #111827;
+  border: 1px solid rgba(212,167,69,0.25);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(212,167,69,0.08);
+}
+.mp-mockup-header {
+  background: #1a2233;
+  padding: 0.55rem 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.mp-mockup-dots { display:flex; gap:4px; }
+.mp-mockup-dots span {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+}
+.mp-mockup-dots span:first-child { background:#ff5f57; }
+.mp-mockup-dots span:nth-child(2) { background:#febc2e; }
+.mp-mockup-dots span:nth-child(3) { background:#28c840; }
+.mp-mockup-url {
+  flex: 1; text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.5px;
+}
+.mp-mockup-body { padding: 1rem 1.1rem 1.1rem; }
+.mp-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+.mp-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--gold);
+  background: rgba(201,152,42,0.1);
+  border: 1px solid rgba(201,152,42,0.2);
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  letter-spacing: 1px;
+}
+.mp-status-dot {
+  font-size: 0.58rem;
+  color: #22c55e;
+  letter-spacing: 1px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.mp-machine-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--white);
+  letter-spacing: 0.5px;
+  margin-bottom: 0.15rem;
+}
+.mp-machine-sub {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.5px;
+}
+.mp-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 0.8rem;
+}
+.mp-tab {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.3);
+  padding: 0.35rem 0.7rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s;
+}
+.mp-tab.active {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
+}
+.mp-fields { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 0.9rem; }
+.mp-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 0.5rem;
+  background: rgba(255,255,255,0.03);
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.mp-field-label { font-size: 0.65rem; color: rgba(255,255,255,0.4); }
+.mp-field-val { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: rgba(255,255,255,0.8); font-weight: 500; }
+.mp-actions { display: flex; gap: 0.5rem; margin-bottom: 0.7rem; }
+.mp-action-btn {
+  flex: 1;
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.4rem;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+}
+.mp-action-btn.accent {
+  background: rgba(212,167,69,0.1);
+  border-color: rgba(212,167,69,0.3);
+  color: var(--teal);
+}
+.mp-footer-note {
+  text-align: center;
+  font-size: 0.58rem;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ─── AUDIT DASHBOARD ────────────────────────────────────── */
+.audit-dashboard {
+  background: #111827;
+  border: 1px solid rgba(212,167,69,0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 1.2rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.audit-dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.audit-dash-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 1px;
+}
+.audit-dash-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(201,152,42,0.1);
+  border: 1px solid rgba(201,152,42,0.25);
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  letter-spacing: 1px;
+}
+.audit-dash-progress-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+.audit-dash-label { font-size: 0.68rem; color: rgba(255,255,255,0.5); }
+.audit-dash-pct { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--teal); font-weight: 700; }
+.audit-progress-bar {
+  height: 5px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+.audit-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal), #00d8dd);
+  border-radius: 3px;
+  transition: width 1s ease;
+}
+.audit-checklist { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1rem; }
+.audit-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.55);
+  padding: 0.35rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.02);
+}
+.audit-check.ok { border-left: 2px solid #22c55e; }
+.audit-check.warn { border-left: 2px solid #f59e0b; color: rgba(255,255,255,0.4); }
+.audit-check-icon { font-size: 0.7rem; margin-top: 0.05rem; min-width: 14px; }
+.audit-check.ok .audit-check-icon { color: #22c55e; }
+.audit-check.warn .audit-check-icon { color: #f59e0b; }
+.audit-dash-footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.7rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ─── MÉTODO STEP EXAMPLES ───────────────────────────────── */
+.step-example {
+  margin: 0.8rem 0;
+  background: rgba(212,167,69,0.04);
+  border: 1px solid rgba(212,167,69,0.12);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.step-ex-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  color: rgba(212,167,69,0.6);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.4rem 0.7rem;
+  background: rgba(212,167,69,0.05);
+  border-bottom: 1px solid rgba(212,167,69,0.08);
+}
+.step-ex-content { padding: 0.5rem 0.7rem; display:flex; flex-direction:column; gap:0.4rem; }
+.step-ex-row { display:flex; align-items:flex-start; gap:0.5rem; font-size:0.65rem; color:rgba(255,255,255,0.5); line-height:1.4; }
+.step-ex-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: 2px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  min-width: 38px;
+  text-align: center;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.step-ex-tag.req { background:rgba(212,167,69,0.15); color:var(--teal); }
+.step-ex-tag.gap { background:rgba(245,158,11,0.15); color:#f59e0b; }
+.step-ex-tag.ok  { background:rgba(34,197,94,0.12); color:#22c55e; }
+.step-ex-tag.dim { background:rgba(139,92,246,0.15); color:#a78bfa; }
+.step-ex-tag.risk{ background:rgba(239,68,68,0.15); color:#f87171; }
+
+/* ─── WHATSAPP BTN BIG ───────────────────────────────────── */
+.btn-wa-big {
+  display: flex !important;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 1.2rem !important;
+  border-radius: 8px !important;
+  background: #25D366 !important;
+  margin-bottom: 1rem;
+  transition: background 0.2s, transform 0.15s !important;
+}
+.btn-wa-big:hover { background: #20BD5C !important; transform: translateY(-2px) !important; }
+
+/* ─── DEMO QR ROW ────────────────────────────────────────── */
+.demo-qr-row {
+  display: flex;
+  gap: 0.8rem;
+  align-items: stretch;
+  margin-bottom: 1rem;
+}
+.demo-qr-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212,167,69,0.15);
+  border-radius: 6px;
+  padding: 0.6rem;
+  min-width: 90px;
+}
+.demo-qr-mini { display:flex; align-items:center; justify-content:center; }
+.demo-qr-label {
+  font-size: 0.58rem;
+  color: rgba(255,255,255,0.3);
+  text-align: center;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+}
+
+/* ─── ANIMATIONS ─────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212,167,69,0.2); }
+  50%       { box-shadow: 0 0 0 8px rgba(212,167,69,0); }
+}
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+}
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.35s; }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  .hero { padding: 5rem 1.5rem 3rem; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .paro-counter-card { margin-top: 2rem; }
+  .section-inner { padding: 3.5rem 1.5rem; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .ai-training-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .passport-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 3.5rem 1.5rem; }
+  .metodo-steps { grid-template-columns: 1fr 1fr; }
+  .nearshore-inner { grid-template-columns: 1fr; }
+  .iatf-grid { grid-template-columns: 1fr; }
+  .demo-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 3.5rem 1.5rem; }
+  .founder-grid { grid-template-columns: 1fr; text-align: center; }
+  .founder-avatar { margin: 0 auto; }
+  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .paro-cards { grid-template-columns: 1fr; }
+  .roi-pair { grid-template-columns: 1fr; }
+}
+@media (max-width: 580px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .metodo-steps { grid-template-columns: 1fr; }
+  .stats-inner { grid-template-columns: 1fr 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ─────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-logo">GMD<span>Engineering Solutions</span></div>
+  <ul class="nav-links">
+    <li><a href="#diagnostico">Diagnóstico</a></li>
+    <li><a href="#passport">Machine Passport</a></li>
+    <li><a href="#activos">Asset Integrity</a></li>
+    <li><a href="#ingenieria">Ingeniería GMD</a></li>
+    <li><a href="#metodo">Método GMD</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="https://wa.me/524444148560" target="_blank" class="nav-cta">Solicitar diagnóstico →</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ────────────────────────────────────────────────── -->
+<section class="hero" id="inicio">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow fade-up">Cluster automotriz SLP / Bajío · 2026</div>
+      <h1 class="hero-h1 fade-up delay-1">
+        Menos incertidumbre.<br>
+        Más <span class="accent">control</span>.<br>
+        Proyectos que <span class="gold">sí llegan a planta.</span>
+      </h1>
+      <p class="hero-sub fade-up delay-2">
+        GMD Engineering Solutions ayuda al responsable de planta a tomar decisiones con mayor certeza, menor presión y menor riesgo de error. Diagnóstico, documentación técnica, control de activos e ingeniería de implementación — integrados en un solo partner estratégico.
+      </p>
+      <div class="hero-actions fade-up delay-3">
+        <a href="https://wa.me/524444148560?text=Hola%20Jorge%2C%20quiero%20solicitar%20un%20diagn%C3%B3stico%20t%C3%A9cnico" target="_blank" class="btn-primary">Solicitar diagnóstico técnico →</a>
+        <a href="#metodo" class="btn-secondary">Ver Método GMD</a>
+      </div>
+      <div class="hero-proof fade-up delay-3">
+        <span class="hero-proof-item">Diagnóstico Industrial</span>
+        <span class="hero-proof-item">Machine Passport™</span>
+        <span class="hero-proof-item">Asset Integrity</span>
+        <span class="hero-proof-item">Ingeniería GMD™</span>
+      </div>
+    </div>
+    <!-- PARO COUNTER -->
+    <div class="paro-counter-card fade-up delay-2">
+      <div class="paro-counter-label">⚠ Costo de paro en tiempo real</div>
+      <div class="paro-counter-sublabel">Línea automotriz Tier 1 · desde que cargó esta página</div>
+      <div class="counter-display" id="counterDisplay">$0</div>
+      <div class="counter-unit">MXN perdidos en su planta — ahora mismo</div>
+      <div class="counter-desc">
+        Basado en <strong>$340,000 MXN/hora</strong> (costo mínimo de paro en Tier 1 automotriz SLP).<br>
+        Un técnico sin información de la máquina prolonga el paro 45 minutos en promedio.<br>
+        <strong>GMD Machine Passport™ reduce ese tiempo a menos de 3 minutos.</strong>
+      </div>
+      <div class="counter-reset" onclick="resetCounter()">↺ Reiniciar contador</div>
+    </div>
+  </div>
+
+  <div class="hero-clients">
+    <div class="hero-clients-label">Experiencia en la región</div>
+    <div class="clients-pills">
+      <span class="client-pill">Continental</span>
+      <span class="client-pill">Toyoda Gosei</span>
+      <span class="client-pill">Valeo</span>
+      <span class="client-pill">Cummins</span>
+      <span class="client-pill">POSCO</span>
+      <span class="client-pill">3M SLP</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── PAIN: COSTO DE PARO ──────────────────────────────────── -->
+<section class="pain-section">
+  <div class="section-inner">
+    <div class="pain-header">
+      <div class="pain-title">⚠ El costo que GMD ayuda a mitigar</div>
+      <div class="pain-note">💱 Tipo de cambio referencial: 1 USD ≈ 17 MXN · Cotización formal en MXN</div>
+    </div>
+    <div class="paro-cards">
+      <div class="paro-card">
+        <div class="paro-tipo">PyME / Manufactura general</div>
+        <div class="paro-rango">$5K – $15K USD/hora</div>
+        <div class="paro-mxn">~$85,000 – $255,000 MXN por hora de paro no programado</div>
+      </div>
+      <div class="paro-card">
+        <div class="paro-tipo">Tier 2 / Tier 1 Automotriz</div>
+        <div class="paro-rango">$20K – $100K USD/hora</div>
+        <div class="paro-mxn">~$340,000 – $1,700,000 MXN por hora de paro no programado</div>
+      </div>
+      <div class="paro-card">
+        <div class="paro-tipo">OEM (Ensambladora)</div>
+        <div class="paro-rango">$100K – $1M+ USD/hora</div>
+        <div class="paro-mxn">~$1,700,000 – $17,000,000+ MXN por hora de paro no programado</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ────────────────────────────────────────────────── -->
+<div class="stats-row">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Años en manufactura automotriz</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">6+</div>
+      <div class="stat-label">Clientes Tier 1 / Tier 2</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Pasos del Método GMD</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3M</div>
+      <div class="stat-label">Excolaborador Fortune 500</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── ECOSISTEMA 4 PRODUCTOS ─────────────────────────────── -->
+<section class="services-section" id="diagnostico">
+  <div class="section-inner">
+    <div class="section-eyebrow">Ecosistema GMD · 4 productos integrados</div>
+    <h2 class="section-h2">Diagnosticar · Acceder · <span class="accent">Controlar</span> · Implementar.</h2>
+    <p class="section-lead">Cada producto puede contratarse de forma independiente. Juntos conforman el sistema completo para reducir incertidumbre, disminuir pérdidas y aumentar el control operativo de su planta.</p>
+
+    <!-- PRODUCTO 01 -->
+    <div style="margin-bottom:2.5rem;padding:2rem;background:rgba(212,167,69,0.04);border:1px solid rgba(212,167,69,0.12);border-radius:10px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start">
+        <div>
+          <div class="section-eyebrow" style="margin-bottom:.5rem">Producto 01</div>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.8rem;color:var(--white);margin-bottom:.8rem;letter-spacing:.04em">GMD Industrial Diagnostic™</h3>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:1rem"><strong style="color:var(--gold)">Promesa:</strong> Antes de gastar dinero, usted sabe exactamente dónde está el problema.</p>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:1.2rem">Cuando ocurre un problema operativo, la mayoría de las organizaciones invierte en soluciones antes de entender con evidencia técnica qué está fallando. El resultado es retrabajo, presupuesto desperdiciado y proyectos que no solucionan el problema real.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem">
+            <span class="hero-proof-item">Diagnóstico técnico</span>
+            <span class="hero-proof-item">Causa raíz</span>
+            <span class="hero-proof-item">Mapa de oportunidades</span>
+            <span class="hero-proof-item">Plan de acción</span>
+          </div>
+          <a href="https://wa.me/524444148560?text=Quiero%20solicitar%20un%20diagn%C3%B3stico%20industrial%20GMD" target="_blank" class="btn-primary" style="font-size:.8rem;padding:.65rem 1.3rem">Solicitar diagnóstico →</a>
+        </div>
+        <div>
+          <div style="margin-bottom:.8rem;font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(212,167,69,.6)">Entregables</div>
+          <div style="display:flex;flex-direction:column;gap:.6rem">
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.8rem;color:rgba(255,255,255,.5)"><span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>Diagnóstico técnico con hallazgos documentados</div>
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.8rem;color:rgba(255,255,255,.5)"><span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>Identificación de causa raíz con evidencia</div>
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.8rem;color:rgba(255,255,255,.5)"><span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>Mapa de oportunidades y priorización de acciones</div>
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.8rem;color:rgba(255,255,255,.5)"><span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>Estimación de impacto económico</div>
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.8rem;color:rgba(255,255,255,.5)"><span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>Plan de acción concreto y priorizado</div>
+          </div>
+          <div style="margin-top:1.2rem;padding:.8rem 1rem;background:rgba(212,167,69,.06);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.6">
+            <strong style="color:var(--gold)">Perfil de cliente:</strong> Gerentes de Ingeniería · Planta · Operaciones · Producción · Mantenimiento
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCTO 02 -->
+    <div style="margin-bottom:2.5rem;padding:2rem;background:rgba(212,167,69,0.07);border:1px solid rgba(212,167,69,0.2);border-radius:10px;position:relative">
+      <div style="position:absolute;top:1rem;right:1rem;background:var(--gold);color:#0C0F14;font-size:.65rem;font-weight:800;padding:.25rem .7rem;border-radius:4px;letter-spacing:.08em">★ PRODUCTO DE ENTRADA</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start">
+        <div>
+          <div class="section-eyebrow" style="margin-bottom:.5rem">Producto 02</div>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.8rem;color:var(--white);margin-bottom:.8rem;letter-spacing:.04em">GMD Machine Passport™</h3>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:1rem"><strong style="color:var(--gold)">Promesa:</strong> Acceda a la información crítica de sus activos en segundos.</p>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:.8rem">Concepto central: <strong style="color:var(--white)">Escanear. Encontrar. Actuar.</strong></p>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:1.2rem">Cuando ocurre un problema operativo, gran parte del tiempo se pierde buscando manuales, planos, refacciones, historial y contactos. La información existe — el problema es que no está disponible cuando se necesita.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem">
+            <span class="hero-proof-item">QR Industrial</span>
+            <span class="hero-proof-item">Expediente Digital</span>
+            <span class="hero-proof-item">Historial</span>
+            <span class="hero-proof-item">Planos y manuales</span>
+          </div>
+          <a href="https://wa.me/524444148560?text=Quiero%20conocer%20el%20GMD%20Machine%20Passport" target="_blank" class="btn-primary" style="font-size:.8rem;padding:.65rem 1.3rem">Ver demo del Passport →</a>
+        </div>
+        <div>
+          <div style="margin-bottom:.8rem;font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(212,167,69,.6)">Resultado esperado</div>
+          <div style="padding:1.2rem;background:rgba(0,0,0,.3);border-radius:8px;margin-bottom:1rem;text-align:center">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.5rem;color:var(--gold);line-height:1">30 seg</div>
+            <div style="font-size:.7rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem">Toda la información técnica disponible</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.6rem">
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.8rem;color:rgba(255,255,255,.5)"><span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>Reduce tiempos muertos por búsqueda de información</div>
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.8rem;color:rgba(255,255,255,.5)"><span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>Elimina dependencia de personas específicas para acceder a datos</div>
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.8rem;color:rgba(255,255,255,.5)"><span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>Compatible con auditorías IATF 16949 y VDA 6.3</div>
+          </div>
+          <div style="margin-top:1.2rem;padding:.8rem 1rem;background:rgba(212,167,69,.06);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.6">
+            <strong style="color:var(--gold)">Perfil de cliente:</strong> Mantenimiento · Ingeniería · Producción · Seguridad · Calidad
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCTO 03 -->
+    <div style="margin-bottom:2.5rem;padding:2rem;background:rgba(212,167,69,0.04);border:1px solid rgba(212,167,69,0.12);border-radius:10px" id="activos">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start">
+        <div>
+          <div class="section-eyebrow" style="margin-bottom:.5rem">Producto 03</div>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.8rem;color:var(--white);margin-bottom:.8rem;letter-spacing:.04em">GMD Asset Integrity™</h3>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:1rem"><strong style="color:var(--gold)">Promesa:</strong> Controle riesgos antes de que se conviertan en pérdidas.</p>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:1.2rem">Muchas organizaciones operan activos críticos sin una estrategia clara de seguimiento documental, inspección y control de riesgos. Esto genera incidentes, paros, multas, observaciones y no conformidades.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem">
+            <span class="hero-proof-item">Calderas</span>
+            <span class="hero-proof-item">Recipientes a presión</span>
+            <span class="hero-proof-item">Sistemas críticos</span>
+            <span class="hero-proof-item">LOTO</span>
+          </div>
+          <a href="https://wa.me/524444148560?text=Quiero%20información%20sobre%20GMD%20Asset%20Integrity" target="_blank" class="btn-primary" style="font-size:.8rem;padding:.65rem 1.3rem">Consultar disponibilidad →</a>
+        </div>
+        <div>
+          <div style="margin-bottom:.8rem;font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(212,167,69,.6)">Entregables</div>
+          <div style="display:flex;flex-direction:column;gap:.6rem">
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.8rem;color:rgba(255,255,255,.5)"><span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>Expedientes técnicos con evidencia documental</div>
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.8rem;color:rgba(255,255,255,.5)"><span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>Historial y programas de inspección</div>
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.8rem;color:rgba(255,255,255,.5)"><span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>Control de cumplimiento e indicadores de riesgo</div>
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.8rem;color:rgba(255,255,255,.5)"><span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>Facilita auditorías internas y externas</div>
+          </div>
+          <div style="margin-top:1.2rem;padding:.8rem 1rem;background:rgba(212,167,69,.06);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.6">
+            <strong style="color:var(--gold)">Perfil de cliente:</strong> Seguridad Industrial · Mantenimiento · Ingeniería · Calidad · Dirección de Planta
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCTO 04 -->
+    <div style="padding:2rem;background:rgba(212,167,69,0.04);border:1px solid rgba(212,167,69,0.12);border-radius:10px" id="ingenieria">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start">
+        <div>
+          <div class="section-eyebrow" style="margin-bottom:.5rem">Producto 04</div>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.8rem;color:var(--white);margin-bottom:.8rem;letter-spacing:.04em">Ingeniería GMD™</h3>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:1rem"><strong style="color:var(--gold)">Promesa:</strong> Implemente soluciones con menor riesgo y mayor certeza.</p>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:1.2rem">Una vez identificado el problema, el cliente necesita ejecutar mejoras reales. GMD diseña e implementa soluciones industriales alineadas a los hallazgos obtenidos durante el diagnóstico.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem">
+            <span class="hero-proof-item">Maquinaria especial</span>
+            <span class="hero-proof-item">FEM / GD&T</span>
+            <span class="hero-proof-item">Ingeniería inversa</span>
+            <span class="hero-proof-item">Automatización</span>
+          </div>
+          <a href="https://wa.me/524444148560?text=Quiero%20hablar%20sobre%20Ingeniería%20GMD" target="_blank" class="btn-primary" style="font-size:.8rem;padding:.65rem 1.3rem">Hablar con Jorge →</a>
+        </div>
+        <div>
+          <div style="margin-bottom:.8rem;font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(212,167,69,.6)">Entregables</div>
+          <div style="display:flex;flex-direction:column;gap:.6rem">
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.8rem;color:rgba(255,255,255,.5)"><span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>Conceptos de solución y modelos 3D</div>
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.8rem;color:rgba(255,255,255,.5)"><span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>Planos de fabricación y memorias técnicas</div>
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.8rem;color:rgba(255,255,255,.5)"><span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>BOM, validaciones y soporte de implementación</div>
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.8rem;color:rgba(255,255,255,.5)"><span style="color:var(--gold);font-weight:700;flex-shrink:0">→</span>Soluciones respaldadas por información real del equipo</div>
+          </div>
+          <div style="margin-top:1.2rem;padding:.8rem 1rem;background:rgba(212,167,69,.06);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.6">
+            <strong style="color:var(--gold)">Perfil de cliente:</strong> Ingeniería · Manufactura · Operaciones · Integradores · OEMs · Tier 1 y 2
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLUJO ECOSISTEMA -->
+    <div style="margin-top:2.5rem;padding:1.5rem;background:rgba(0,0,0,.3);border-radius:10px;border:1px solid rgba(212,167,69,.08);text-align:center">
+      <div style="font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(212,167,69,.5);margin-bottom:1rem">Lógica comercial del ecosistema</div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap">
+        <div style="padding:.6rem 1rem;background:rgba(212,167,69,.08);border:1px solid rgba(212,167,69,.2);border-radius:6px;font-size:.78rem;color:var(--gold);font-weight:600">Diagnosticar</div>
+        <div style="color:rgba(212,167,69,.4);font-size:1.2rem">↓</div>
+        <div style="padding:.6rem 1rem;background:rgba(212,167,69,.08);border:1px solid rgba(212,167,69,.2);border-radius:6px;font-size:.78rem;color:var(--gold);font-weight:600">Acceder</div>
+        <div style="color:rgba(212,167,69,.4);font-size:1.2rem">↓</div>
+        <div style="padding:.6rem 1rem;background:rgba(212,167,69,.08);border:1px solid rgba(212,167,69,.2);border-radius:6px;font-size:.78rem;color:var(--gold);font-weight:600">Controlar</div>
+        <div style="color:rgba(212,167,69,.4);font-size:1.2rem">↓</div>
+        <div style="padding:.6rem 1rem;background:rgba(212,167,69,.08);border:1px solid rgba(212,167,69,.2);border-radius:6px;font-size:.78rem;color:var(--gold);font-weight:600">Implementar</div>
+      </div>
+      <p style="margin-top:1rem;font-size:.78rem;color:rgba(255,255,255,.35);max-width:600px;margin-left:auto;margin-right:auto;line-height:1.6">Cada producto puede venderse individualmente. Sin embargo, juntos conforman un ecosistema integral para reducir incertidumbre, disminuir pérdidas y aumentar el control operativo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── MACHINE PASSPORT ─────────────────────────────────────── -->
+<section id="passport">
+  <div class="passport-section">
+    <div class="passport-inner">
+      <div>
+        <div class="passport-badge">★ Producto estrella · Lanzamiento 2026</div>
+        <h2 class="passport-h2">El <span>pasaporte digital</span><br>de cada máquina en su planta.</h2>
+        <p class="passport-desc">
+          ¿Cuánto le cuesta no tener documentadas sus máquinas? Cada paro no planeado donde alguien busca información — un manual, el proveedor, el último registro de intervención — es dinero que sale. GMD Machine Passport resuelve eso con un QR en la máquina y toda la información en el celular del técnico, en menos de 3 minutos.
+        </p>
+        <ul class="passport-benefits">
+          <li>Reduce el tiempo de diagnóstico en un <strong>85%</strong> — de 45 minutos a menos de 3</li>
+          <li>Ficha técnica, planos, historial, manuales y contactos: todo en un solo lugar</li>
+          <li>Accesible desde cualquier celular, sin apps, sin servidores propios, sin VPN</li>
+          <li>Placa QR grado industrial resistente a ambientes de manufactura</li>
+          <li>Compatible con auditorías IATF 16949 y VDA 6.3 — trazabilidad documentada</li>
+          <li>Convierte el conocimiento tácito de sus técnicos en activo documentado y transferible</li>
+        </ul>
+        <div class="roi-pair">
+          <div class="roi-box">
+            <div class="roi-num">$5,740</div>
+            <div class="roi-label">MXN de ahorro<br>por evento de paro evitado<br>(base: $8,000 MXN/hora)</div>
+          </div>
+          <div class="roi-box">
+            <div class="roi-num">540%</div>
+            <div class="roi-label">ROI anual por máquina<br>crítica con 4 eventos<br>evitables al año</div>
+          </div>
+        </div>
+      </div>
+      <!-- MOCKUP MACHINE PASSPORT -->
+      <div class="qr-visual" style="padding:0; background:transparent; border:none;">
+        <div class="mp-mockup">
+          <div class="mp-mockup-header">
+            <div class="mp-mockup-dots"><span></span><span></span><span></span></div>
+            <div class="mp-mockup-url">madmaxmind.github.io/passport-gmd</div>
+            <div style="width:40px;"></div>
+          </div>
+          <div class="mp-mockup-body">
+            <div class="mp-top-bar">
+              <div class="mp-badge">GMD-MP-0031</div>
+              <div class="mp-status-dot">● ACTIVO</div>
+            </div>
+            <div class="mp-machine-name">Anguil Thermal Oxidizer</div>
+            <div class="mp-machine-sub">Oxidador Térmico Regenerativo · 3M SLP</div>
+            <div class="mp-tabs">
+              <div class="mp-tab active">Ficha</div>
+              <div class="mp-tab">Planos</div>
+              <div class="mp-tab">Historial</div>
+              <div class="mp-tab">Contactos</div>
+            </div>
+            <div class="mp-fields">
+              <div class="mp-field"><span class="mp-field-label">Ducto entrada</span><span class="mp-field-val">34"</span></div>
+              <div class="mp-field"><span class="mp-field-label">Ducto salida</span><span class="mp-field-val">32"</span></div>
+              <div class="mp-field"><span class="mp-field-label">Estructura</span><span class="mp-field-val">PTR 6×6</span></div>
+              <div class="mp-field"><span class="mp-field-label">Última intervención</span><span class="mp-field-val" style="color:var(--teal);">Jun 2026</span></div>
+              <div class="mp-field"><span class="mp-field-label">Estado</span><span class="mp-field-val" style="color:#22c55e;">Operativo</span></div>
+            </div>
+            <div class="mp-actions">
+              <div class="mp-action-btn">📋 Ver planos</div>
+              <div class="mp-action-btn accent">🔧 Registrar intervención</div>
+            </div>
+            <div class="mp-footer-note">Acceso inmediato · Sin app · Sin VPN</div>
+          </div>
+        </div>
+        <div class="qr-tiers" style="margin-top:1.2rem;">
+          <div class="qr-tier">
+            <span style="font-size:0.75rem; color:rgba(255,255,255,0.5);">Control Base</span>
+            <span class="tier-price">$8.5K – $17K MXN</span>
+          </div>
+          <div class="qr-tier featured">
+            <span style="font-size:0.75rem; color:rgba(255,255,255,0.7); font-weight:600;">Control Operativo ★</span>
+            <span class="tier-price">$25.5K – $51K MXN</span>
+          </div>
+          <div class="qr-tier">
+            <span style="font-size:0.75rem; color:rgba(255,255,255,0.5);">Control Estratégico</span>
+            <span class="tier-price">$85K – $255K+ MXN</span>
+          </div>
+        </div>
+        <div class="qr-currency-note">+ IVA · Pago único · Soporte 12 meses incluido</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NEARSHORING BANNER ────────────────────────────────────── -->
+<div class="nearshore-banner">
+  <div class="nearshore-inner">
+    <div>
+      <div class="nearshore-label">Contexto de mercado · SLP / Bajío 2026</div>
+      <h3 class="nearshore-h3">El nearshoring trajo más plantas.<br>También más presión operativa.</h3>
+      <p class="nearshore-desc">La ola de inversión automotriz en San Luis Potosí y el Bajío está generando demanda acelerada de capacidad instalada, documentación técnica y cumplimiento IATF. Las plantas que no tengan sus procesos documentados y sus máquinas trazables serán las primeras en fallar una auditoría o en perder tiempo valioso de producción. GMD existe para que su planta no sea esa.</p>
+    </div>
+    <div class="nearshore-stat">
+      <div class="nearshore-num">SLP</div>
+      <div class="nearshore-unit">Hub automotriz<br>Tier 1 / Tier 2<br>más activo del centro de México</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── IATF / COMPLIANCE ─────────────────────────────────────── -->
+<section class="iatf-section" id="iatf">
+  <div class="section-inner">
+    <div class="iatf-grid">
+      <div>
+        <div class="section-eyebrow">Cumplimiento normativo</div>
+        <h2 class="section-h2">GMD como<br>aliado <span class="accent">IATF</span>,<br>no solo proveedor.</h2>
+        <p class="section-lead" style="margin-bottom:0;">En el clúster automotriz de SLP, una no-conformidad en auditoría IATF 16949 o VDA 6.3 puede costar más que todo un año de contratos con GMD. La documentación técnica que GMD genera no es burocracia — es blindaje ante la auditoría.</p>
+        <div class="iatf-refs">
+          <div class="iatf-ref">
+            <div class="iatf-ref-code">IATF §10.2</div>
+            <div class="iatf-ref-text">No conformidad y acción correctiva. GMD Machine Passport genera el historial de intervenciones necesario para evidenciar el ciclo correctivo.</div>
+          </div>
+          <div class="iatf-ref">
+            <div class="iatf-ref-code">IATF §8.5.1</div>
+            <div class="iatf-ref-text">Control de producción y servicio. La documentación técnica de cada máquina soporta la trazabilidad del proceso productivo requerida por la norma.</div>
+          </div>
+          <div class="iatf-ref">
+            <div class="iatf-ref-code">IATF §9.1.1</div>
+            <div class="iatf-ref-text">Monitoreo, medición, análisis y evaluación. El expediente digital por máquina provee evidencia objetiva del estado del equipo.</div>
+          </div>
+          <div class="iatf-ref">
+            <div class="iatf-ref-code">VDA 6.3 · P5</div>
+            <div class="iatf-ref-text">Gestión de proveedores y procesos. GMD aporta la documentación estructurada que los auditores VDA esperan encontrar en campo.</div>
+          </div>
+        </div>
+      </div>
+      <div class="audit-score" style="padding:0; background:transparent; border:none;">
+        <!-- DASHBOARD AUDITORÍA MOCKUP -->
+        <div class="audit-dashboard">
+          <div class="audit-dash-header">
+            <span class="audit-dash-title">GMD · Checklist IATF 16949</span>
+            <span class="audit-dash-badge">VDA 6.3</span>
+          </div>
+          <div class="audit-dash-progress-row">
+            <span class="audit-dash-label">Evidencia documentada</span>
+            <span class="audit-dash-pct">94%</span>
+          </div>
+          <div class="audit-progress-bar"><div class="audit-progress-fill" style="width:94%"></div></div>
+          <div class="audit-checklist">
+            <div class="audit-check ok"><span class="audit-check-icon">✓</span><span>Historial de intervenciones (§10.2)</span></div>
+            <div class="audit-check ok"><span class="audit-check-icon">✓</span><span>Trazabilidad proceso productivo (§8.5.1)</span></div>
+            <div class="audit-check ok"><span class="audit-check-icon">✓</span><span>Expediente digital por máquina (§9.1.1)</span></div>
+            <div class="audit-check ok"><span class="audit-check-icon">✓</span><span>Documentación proveedores (VDA P5)</span></div>
+            <div class="audit-check warn"><span class="audit-check-icon">⚠</span><span>Plan de control — actualización pendiente</span></div>
+          </div>
+          <div class="audit-dash-footer">
+            <span>Máquinas documentadas</span>
+            <span style="color:var(--teal); font-weight:700;">12 / 14</span>
+          </div>
+        </div>
+        <div style="margin-top:1rem; padding:1rem; background:rgba(212,167,69,0.06); border-radius:6px; border:1px solid rgba(212,167,69,0.15);">
+          <p style="font-size:0.75rem; color:var(--teal); font-weight:600; margin-bottom:0.3rem;">Demo Técnica en Planta</p>
+          <p style="font-size:0.72rem; color:rgba(255,255,255,0.35); line-height:1.5;">El Gerente de Mantenimiento puede autorizar la Demo sin pasar por comité de compras. Ciclo: 3–4 semanas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MÉTODO GMD ────────────────────────────────────────────── -->
+<section class="metodo-section" id="metodo">
+  <div class="section-inner">
+    <div class="section-eyebrow">Metodología propietaria</div>
+    <h2 class="section-h2">Método de <span class="accent">Maduración</span><br>de Proyectos antes de Fabricar.</h2>
+    <p class="section-lead">Un framework de 4 pasos que elimina errores de origen, evita rediseños costosos y garantiza que cada proyecto llegue a fabricación con toda la información necesaria. Sin sorpresas en piso.</p>
+    <div class="metodo-steps">
+      <div class="metodo-step">
+        <div class="step-num">01</div>
+        <div class="step-phase">Presales · Clarificación</div>
+        <div class="step-title">Definición del requerimiento real</div>
+        <p class="step-desc">Antes de diseñar una sola línea, GMD define exactamente qué se necesita. Eliminamos supuestos de raíz: el problema real, no el síntoma visible.</p>
+        <div class="step-example">
+          <div class="step-ex-label">Entregable</div>
+          <div class="step-ex-content">
+            <div class="step-ex-row"><span class="step-ex-tag req">REQ-01</span><span>Capacidad de carga: 850 kg real vs 600 kg asumido</span></div>
+            <div class="step-ex-row"><span class="step-ex-tag gap">GAP</span><span>Ciclo de cambio: 4 modelos/turno no declarados</span></div>
+            <div class="step-ex-row"><span class="step-ex-tag ok">OK</span><span>Restricción dimensional confirmada en piso</span></div>
+          </div>
+        </div>
+        <div class="step-tool">GMD Presales GPT</div>
+      </div>
+      <div class="metodo-step">
+        <div class="step-num">02</div>
+        <div class="step-phase">Measure · Integración</div>
+        <div class="step-title">Levantamiento en realidad, no en supuestos</div>
+        <p class="step-desc">Captura de datos reales del piso de planta. Mediciones dimensionales, fotografía técnica, entrevistas con operadores y mantenimiento.</p>
+        <div class="step-example">
+          <div class="step-ex-label">Captura de campo</div>
+          <div class="step-ex-content">
+            <div class="step-ex-row"><span class="step-ex-tag dim">DIM</span><span>Ancho libre real: 1,247 mm (plano decía 1,300)</span></div>
+            <div class="step-ex-row"><span class="step-ex-tag dim">FTO</span><span>12 fotografías técnicas con referencia métrica</span></div>
+            <div class="step-ex-row"><span class="step-ex-tag ok">OP</span><span>Entrevista operador: interferencia en ciclo B</span></div>
+          </div>
+        </div>
+        <div class="step-tool">GMD Measure & Capture</div>
+      </div>
+      <div class="metodo-step">
+        <div class="step-num">03</div>
+        <div class="step-phase">Audit · Validación</div>
+        <div class="step-title">Revisión preventiva antes del metal</div>
+        <p class="step-desc">Análisis FEM, GD&T y revisión de diseño antes de tocar el metal. Detectamos en pantalla lo que costaría una fortuna descubrir en fabricación.</p>
+        <div class="step-example">
+          <div class="step-ex-label">Reporte Design Audit</div>
+          <div class="step-ex-content">
+            <div class="step-ex-row"><span class="step-ex-tag risk">R-ALTO</span><span>Concentrador de esfuerzo en nervadura L3 — FEM</span></div>
+            <div class="step-ex-row"><span class="step-ex-tag gap">GD&T</span><span>Tolerancia posicional ø0.5 no fabricable con setup actual</span></div>
+            <div class="step-ex-row"><span class="step-ex-tag ok">OK</span><span>Soldadura GMAW compatible con especificación</span></div>
+          </div>
+        </div>
+        <div class="step-tool">GMD Design Audit</div>
+      </div>
+      <div class="metodo-step">
+        <div class="step-num">04</div>
+        <div class="step-phase">Passport · Documentación</div>
+        <div class="step-title">Entregable técnico para operación</div>
+        <p class="step-desc">Todo proyecto GMD termina con documentación comprensible para operación y mantenimiento — no solo para ingeniería. El conocimiento queda en la planta.</p>
+        <div class="step-example">
+          <div class="step-ex-label">Machine Passport entregado</div>
+          <div class="step-ex-content">
+            <div class="step-ex-row"><span class="step-ex-tag ok">QR</span><span>Placa industrial instalada en máquina</span></div>
+            <div class="step-ex-row"><span class="step-ex-tag ok">DOC</span><span>Ficha técnica + planos + historial en línea</span></div>
+            <div class="step-ex-row"><span class="step-ex-tag ok">ACC</span><span>Acceso desde celular en &lt;3 min, sin app</span></div>
+          </div>
+        </div>
+        <div class="step-tool">GMD Machine Passport</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DEMO / CONTACTO ───────────────────────────────────────── -->
+<section class="demo-section" id="contacto">
+  <div class="demo-inner">
+    <div>
+      <div class="demo-label">Siguiente paso</div>
+      <h2 class="demo-h2">Demo Técnica<br>en Planta — <span>sin comité</span><br>de compras.</h2>
+      <p class="demo-desc">El Gerente de Mantenimiento puede autorizar la Demo Técnica en Planta directamente, sin necesidad de pasar por un comité formal de adquisiciones. Ciclo de 3 a 4 semanas desde el primer contacto hasta ver el sistema funcionando en su propia máquina.</p>
+      <div class="demo-steps">
+        <div class="demo-step">
+          <div class="demo-step-num">1</div>
+          <span>Contacto inicial — diagnóstico sin compromiso de 30 minutos</span>
+        </div>
+        <div class="demo-step">
+          <div class="demo-step-num">2</div>
+          <span>Selección de 1 máquina crítica para el piloto técnico</span>
+        </div>
+        <div class="demo-step">
+          <div class="demo-step-num">3</div>
+          <span>Levantamiento, configuración e instalación del Machine Passport</span>
+        </div>
+        <div class="demo-step">
+          <div class="demo-step-num">4</div>
+          <span>Sesión de validación con gerencia — métricas de impacto en tiempo real</span>
+        </div>
+      </div>
+    </div>
+    <div class="demo-cta-box">
+      <div class="demo-cta-title">Solicitar Demo Técnica</div>
+      <p class="demo-cta-desc">DI Jorge Vallejo Palacios<br>Fundador · GMD Engineering Solutions<br>San Luis Potosí, México</p>
+      <!-- BOTÓN WHATSAPP PRINCIPAL -->
+      <a href="https://wa.me/524444148560?text=Hola%20Jorge%2C%20me%20interesa%20la%20Demo%20T%C3%A9cnica%20en%20Planta%20de%20GMD" target="_blank" class="btn-wa btn-wa-big">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <div>
+          <div style="font-size:0.95rem; font-weight:800; letter-spacing:1px;">WhatsApp · +52 4444 148560</div>
+          <div style="font-size:0.68rem; opacity:0.75; font-weight:400; letter-spacing:0.5px;">Respuesta en menos de 2 horas en horario laboral</div>
+        </div>
+      </a>
+      <!-- QR + EMAIL ROW -->
+      <div class="demo-qr-row">
+        <div class="demo-qr-block">
+          <div class="demo-qr-mini">
+            <!-- QR SVG apuntando a madmaxmind.github.io/passport-gmd -->
+            <svg width="72" height="72" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <rect width="21" height="21" fill="#0D1117"/>
+              <!-- finder TL -->
+              <rect x="1" y="1" width="7" height="7" fill="none" stroke="#D4A745" stroke-width="1"/>
+              <rect x="3" y="3" width="3" height="3" fill="#D4A745"/>
+              <!-- finder TR -->
+              <rect x="13" y="1" width="7" height="7" fill="none" stroke="#D4A745" stroke-width="1"/>
+              <rect x="15" y="3" width="3" height="3" fill="#D4A745"/>
+              <!-- finder BL -->
+              <rect x="1" y="13" width="7" height="7" fill="none" stroke="#D4A745" stroke-width="1"/>
+              <rect x="3" y="15" width="3" height="3" fill="#D4A745"/>
+              <!-- data modules -->
+              <rect x="9" y="1" width="1" height="1" fill="#D4A745"/>
+              <rect x="11" y="1" width="1" height="1" fill="#D4A745"/>
+              <rect x="9" y="3" width="2" height="1" fill="#D4A745"/>
+              <rect x="10" y="5" width="1" height="2" fill="#D4A745"/>
+              <rect x="9" y="7" width="1" height="1" fill="#D4A745"/>
+              <rect x="11" y="6" width="1" height="1" fill="#D4A745"/>
+              <rect x="1" y="9" width="2" height="1" fill="#D4A745"/>
+              <rect x="4" y="9" width="1" height="2" fill="#D4A745"/>
+              <rect x="6" y="10" width="2" height="1" fill="#D4A745"/>
+              <rect x="9" y="9" width="1" height="1" fill="#D4A745"/>
+              <rect x="11" y="9" width="2" height="1" fill="#D4A745"/>
+              <rect x="13" y="10" width="1" height="1" fill="#D4A745"/>
+              <rect x="15" y="9" width="2" height="2" fill="#D4A745"/>
+              <rect x="18" y="9" width="2" height="1" fill="#D4A745"/>
+              <rect x="9" y="11" width="2" height="1" fill="#D4A745"/>
+              <rect x="12" y="12" width="1" height="1" fill="#D4A745"/>
+              <rect x="14" y="11" width="1" height="2" fill="#D4A745"/>
+              <rect x="16" y="12" width="3" height="1" fill="#D4A745"/>
+              <rect x="9" y="13" width="1" height="2" fill="#D4A745"/>
+              <rect x="11" y="14" width="2" height="1" fill="#D4A745"/>
+              <rect x="9" y="16" width="1" height="1" fill="#D4A745"/>
+              <rect x="11" y="16" width="1" height="2" fill="#D4A745"/>
+              <rect x="13" y="15" width="2" height="1" fill="#D4A745"/>
+              <rect x="16" y="14" width="1" height="3" fill="#D4A745"/>
+              <rect x="18" y="15" width="2" height="1" fill="#D4A745"/>
+              <rect x="18" y="18" width="2" height="2" fill="#D4A745"/>
+            </svg>
+          </div>
+          <div class="demo-qr-label">Ver demo<br>Machine Passport</div>
+        </div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:0.5rem;">
+          <a href="mailto:geomechanicaldesign@gmail.com" class="btn-mail">
+            ✉ geomechanicaldesign@gmail.com
+          </a>
+          <a href="https://madmaxmind.github.io/passport-gmd" target="_blank" class="btn-mail">
+            🌐 Ver demo en vivo →
+          </a>
+        </div>
+      </div>
+      <div class="demo-cta-note">Sin compromiso. Sin comité. El Gerente de Mantenimiento puede autorizar directamente.<br>Cotización formal en <strong style="color:rgba(255,255,255,0.4);">Pesos Mexicanos (MXN)</strong>.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOUNDER ────────────────────────────────────────────────── -->
+<section class="founder-section">
+  <div class="section-inner">
+    <div class="founder-grid">
+      <div class="founder-avatar">JV</div>
+      <div>
+        <div class="section-eyebrow">El ingeniero detrás de GMD</div>
+        <div class="founder-name">DI Jorge Vallejo Palacios</div>
+        <div class="founder-role">Fundador · GMD Engineering Solutions</div>
+        <p class="founder-bio">Diseñador Industrial egresado de la UASLP · Facultad del Hábitat, con más de 15 años de experiencia en manufactura automotriz, metal-mecánica y proyectos de complejidad real. Excolaborador de 3M, Calvek Automation, FAUDEM y SIMA. Ha trabajado directamente con Continental Contitech, Toyoda Gosei, Valeo, Cummins, POSCO y Maxion — entendiendo desde adentro qué necesita una planta Tier 1 para operar sin interrupciones.</p>
+        <p class="founder-bio" style="margin-top:0.5rem;">GMD no es una oficina de diseño. Es el criterio técnico probado en piso real, convertido en metodología propia.</p>
+        <div class="founder-tags">
+          <span class="founder-tag">Diseñador Industrial · UASLP</span>
+          <span class="founder-tag">Manufactura automotriz</span>
+          <span class="founder-tag">GD&T</span>
+          <span class="founder-tag">Análisis FEM</span>
+          <span class="founder-tag">Ingeniería inversa 3D</span>
+          <span class="founder-tag">IATF 16949</span>
+          <span class="founder-tag">Excolaborador 3M</span>
+          <span class="founder-tag">SLP / Bajío</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">GMD</div>
+      <p class="footer-tagline">Ingeniería para la continuidad operativa.<br>Porque detenerse cuesta más que prevenir.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Servicios</div>
+      <ul class="footer-links">
+        <li><a href="#servicios">Maquinaria especial</a></li>
+        <li><a href="#servicios">Estaciones de ensamble</a></li>
+        <li><a href="#servicios">Retool y modificaciones</a></li>
+        <li><a href="#servicios">GD&T y FEM</a></li>
+        <li><a href="#servicios">Ingeniería inversa 3D</a></li>
+        <li><a href="#activos">Asset Integrity — quitar formación&oacute;n IA en directo</a></li>
+        <li><a href="#passport">Machine Passport</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contacto</div>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/524444148560" target="_blank">+52 4444 148560</a></li>
+        <li><a href="mailto:geomechanicaldesign@gmail.com">geomechanicaldesign@gmail.com</a></li>
+        <li><a href="https://madmaxmind.github.io/passport-gmd" target="_blank">madmaxmind.github.io/passport-gmd</a></li>
+        <li><a href="#contacto">Demo Técnica en Planta →</a></li>
+      </ul>
+      <div style="margin-top:1.2rem; font-size:0.65rem; color:rgba(255,255,255,0.2); line-height:1.6;">San Luis Potosí, México<br>Clúster automotriz SLP / Bajío</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 GMD Engineering Solutions · DI Jorge Vallejo Palacios · San Luis Potosí, México</span>
+    <span><a href="https://madmaxmind.github.io/passport-gmd" target="_blank">passport-gmd →</a></span>
+  </div>
+</footer>
+
+<!-- ── SCRIPTS ────────────────────────────────────────────────── -->
+<script>
+// PARO COUNTER — firma del sitio
+(function() {
+  const RATE_PER_SECOND = 340000 / 3600; // $340,000 MXN/hora mínimo Tier 1
+  let startTime = Date.now();
+  let animFrame;
+
+  function formatMXN(val) {
+    if (val >= 1000000) {
+      return '$' + (val / 1000000).toFixed(2) + 'M';
+    }
+    if (val >= 1000) {
+      return '$' + Math.floor(val).toLocaleString('es-MX');
+    }
+    return '$' + Math.floor(val);
+  }
+
+  function tick() {
+    const elapsed = (Date.now() - startTime) / 1000;
+    const lost = elapsed * RATE_PER_SECOND;
+    document.getElementById('counterDisplay').textContent = formatMXN(lost);
+    animFrame = requestAnimationFrame(tick);
+  }
+
+  window.resetCounter = function() {
+    startTime = Date.now();
+  };
+
+  tick();
+})();
+
+// NAV scroll behavior
+(function() {
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 40) {
+      nav.style.background = 'rgba(13,17,23,0.98)';
+    } else {
+      nav.style.background = 'rgba(13,17,23,0.92)';
+    }
+  });
+})();
+
+// Intersection Observer for fade-up
+(function() {
+  // Elements not already animated by CSS on load
+  const targets = document.querySelectorAll(
+    '.service-card, .ai-training-panel, .metodo-step, .iatf-ref, .paro-card, .stat-item'
+  );
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  targets.forEach(t => {
+    t.style.opacity = '0';
+    t.style.transform = 'translateY(20px)';
+    t.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+    obs.observe(t);
+  });
+})();
+</script>
+</body>
+</html>
