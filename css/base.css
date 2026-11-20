@@ -1,0 +1,21 @@
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 20px); }
+body { margin: 0; background: var(--gmd-bg); color: var(--gmd-white); font-family: var(--font-body); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+.container { width: min(var(--container), calc(100% - 48px)); margin-inline: auto; }
+.section { padding: 104px 0; position: relative; }
+.section-dark { background: var(--gmd-bg); color: var(--gmd-white); }
+.section-ink { background: #0d1720; color: var(--gmd-white); }
+.section-light { background: var(--gmd-paper); color: var(--gmd-ink); }
+.section-muted { background: var(--gmd-paper-alt); color: var(--gmd-ink); }
+.section-blueprint { background: #dfe8eb; color: var(--gmd-ink); position: relative; overflow: hidden; }
+.section-blueprint::before { content: ""; position: absolute; inset: 0; opacity: .24; pointer-events: none; background-image: linear-gradient(rgba(28, 70, 91, .15) 1px, transparent 1px), linear-gradient(90deg, rgba(28, 70, 91, .15) 1px, transparent 1px); background-size: 34px 34px; }
+.section-contact { background: #0c1720; color: var(--gmd-white); }
+.skip-link { position: absolute; left: 12px; top: -60px; z-index: 1000; background: var(--gmd-cyan); color: #071018; padding: 10px 14px; border-radius: 4px; font-weight: 700; }
+.skip-link:focus { top: 12px; }
+:focus-visible { outline: 3px solid var(--gmd-yellow); outline-offset: 3px; }
+::selection { background: rgba(0, 166, 214, .32); color: white; }
+@media (max-width: 760px) { .section { padding: 76px 0; } .container { width: min(var(--container), calc(100% - 34px)); } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }

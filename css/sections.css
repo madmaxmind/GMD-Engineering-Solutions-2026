@@ -1,0 +1,326 @@
+/* HERO */
+.hero { min-height: 680px; padding: 84px 0 30px; position: relative; overflow: hidden; }
+.hero-grid-lines { position: absolute; inset: 0; pointer-events: none; opacity: .22; background-image: linear-gradient(rgba(80, 130, 151, .12) 1px, transparent 1px), linear-gradient(90deg, rgba(80, 130, 151, .12) 1px, transparent 1px); background-size: 58px 58px; mask-image: linear-gradient(90deg, black, transparent 90%); }
+.hero-layout { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(350px, .88fr); align-items: center; gap: clamp(38px, 6vw, 92px); }
+.hero-copy h1 { max-width: 760px; margin: 0 0 22px; font: 800 clamp(3.1rem, 5.5vw, 5.3rem)/.96 var(--font-display); letter-spacing: -.02em; }
+.hero-copy h1 span { color: var(--gmd-cyan-light); }
+.hero-lead { max-width: 660px; margin: 0; color: #b2c0c7; font-size: clamp(1.05rem, 1.4vw, 1.22rem); line-height: 1.65; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 30px 0 34px; }
+.hero-facts { display: flex; gap: 34px; flex-wrap: wrap; border-top: 1px solid var(--gmd-line); padding-top: 20px; }
+.hero-facts div { max-width: 225px; display: grid; gap: 3px; }
+.hero-facts strong { color: var(--gmd-white); font: 700 1.3rem var(--font-display); }
+.hero-facts span { color: #8497a2; font-size: .8rem; line-height: 1.4; }
+.hero-visual { margin: 0; min-width: 0; position: relative; }
+.visual-frame { position: relative; border: 1px solid rgba(0, 166, 214, .42); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); background: #101a22; }
+.visual-frame::after { content: ""; position: absolute; inset: 0; pointer-events: none; border: 8px solid rgba(10, 17, 24, .13); }
+.visual-frame img { width: 100%; aspect-ratio: 1.5; object-fit: cover; opacity: .9; }
+.visual-index, .visual-label { position: absolute; z-index: 1; font: 700 .65rem var(--font-display); letter-spacing: .14em; }
+.visual-index { top: 15px; left: 16px; background: rgba(8, 16, 22, .85); padding: 7px 9px; color: var(--gmd-cyan-light); }
+.visual-label { bottom: 16px; left: 16px; color: white; text-shadow: 0 1px 8px black; }
+.hero-visual figcaption { margin: 9px 2px 0; color: #788b95; font-size: .72rem; }
+.hero-ribbon { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; padding-top: 48px; color: #8fa1aa; font: 700 .7rem var(--font-display); letter-spacing: .12em; }
+.hero-ribbon i { width: 5px; height: 5px; border-radius: 50%; background: var(--gmd-yellow); }
+
+/* PROBLEMS */
+.problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.problem-card { min-height: 310px; padding: 26px; background: #f8fafb; border: 1px solid #d9e1e5; border-top: 3px solid #b6c6ce; display: flex; flex-direction: column; align-items: flex-start; }
+.problem-card:nth-child(2) { border-top-color: var(--gmd-cyan); }
+.card-number { color: #607581; font: 700 .7rem var(--font-display); letter-spacing: .14em; }
+.line-icon { width: 46px; height: 46px; margin: 25px 0 18px; display: grid; place-items: center; color: #0a8eaf; border: 1px solid #8fcbd9; font: 500 1.8rem var(--font-display); }
+.problem-card h3 { margin: 0 0 12px; font: 700 1.55rem/1.08 var(--font-display); }
+.problem-card p { margin: 0 0 22px; color: #5c707c; font-size: .94rem; line-height: 1.55; }
+.problem-card .text-link { margin-top: auto; }
+
+/* FOUR CAPABILITIES */
+.section-ink .section-heading h2 { color: white; }
+.capability-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.capability-card { position: relative; min-height: 360px; padding: 30px; background: #121f29; border: 1px solid rgba(220, 233, 239, .12); display: flex; flex-direction: column; }
+.capability-featured { background: linear-gradient(145deg, #102c3a, #12232e 75%); border-color: rgba(0, 166, 214, .55); box-shadow: inset 0 0 0 1px rgba(0, 166, 214, .1); }
+.capability-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 22px; border-bottom: 1px solid var(--gmd-line); }
+.capability-id { color: var(--gmd-cyan-light); font: 700 1rem var(--font-display); }
+.capability-mark { color: #7f939e; font: 700 .65rem var(--font-display); letter-spacing: .15em; }
+.capability-card h3 { margin: 24px 0 8px; font: 700 2rem/1 var(--font-display); }
+.capability-summary { margin: 0 0 18px; color: #b6c5cc; font-size: 1rem; }
+.capability-card ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.capability-card li { position: relative; padding-left: 18px; color: #91a3ad; font-size: .9rem; }
+.capability-card li::before { content: ""; position: absolute; top: .7em; left: 0; width: 6px; height: 6px; background: var(--gmd-cyan); }
+.deliverable { border-top: 1px solid var(--gmd-line); padding-top: 15px; margin: auto 0 0; color: #8ea1ab; font-size: .85rem; }
+.deliverable b { color: #dbe5ea; }
+.capability-featured .deliverable { margin-top: 22px; }
+.card-cta { margin-top: 16px; display: flex; justify-content: space-between; color: var(--gmd-cyan-light); font-weight: 700; font-size: .9rem; }
+.capability-note { margin: 24px 0 0; color: #748894; font-size: .82rem; }
+
+/* MACHINE PASSPORT */
+.passport-layout { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(38px, 6vw, 82px); align-items: start; }
+.product-kicker { color: #0b829f; font: 700 .7rem var(--font-display); letter-spacing: .18em; margin: 0 0 10px; }
+.passport-copy h2 { margin: 0 0 18px; font: 900 clamp(4rem, 7vw, 6.2rem)/.78 var(--font-display); letter-spacing: -.04em; text-transform: uppercase; }
+.passport-copy h2 span { color: #078eaf; }
+.passport-copy h3 { max-width: 590px; margin: 28px 0 14px; font: 700 1.6rem/1.14 var(--font-display); }
+.passport-copy > p:not(.eyebrow):not(.product-kicker):not(.demo-disclaimer) { max-width: 570px; color: #4d626d; line-height: 1.75; }
+.passport-flow { margin: 27px 0; display: flex; align-items: center; gap: 14px; border-top: 1px solid var(--gmd-line-dark); border-bottom: 1px solid var(--gmd-line-dark); padding: 15px 0; }
+.passport-flow div { display: grid; gap: 2px; }
+.passport-flow b { color: #078eaf; font: 700 .75rem var(--font-display); }
+.passport-flow span { color: #1b2a33; font-size: .87rem; font-weight: 700; }
+.passport-flow i { color: #9aaab1; font-style: normal; }
+.passport-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.demo-disclaimer { margin: 20px 0 0; border-left: 3px solid var(--gmd-yellow); padding: 9px 0 9px 13px; color: #586d77; font-size: .78rem; line-height: 1.55; }
+.demo-disclaimer b { color: #273f4a; }
+.passport-image-card { position: relative; border: 1px solid rgba(14, 70, 88, .25); box-shadow: 0 22px 46px rgba(24, 57, 71, .18); }
+.passport-image-card img { width: 100%; aspect-ratio: 1.5; object-fit: cover; }
+.image-tag { position: absolute; bottom: 12px; right: 12px; background: rgba(7, 16, 22, .88); color: white; padding: 7px 10px; font: 700 .62rem var(--font-display); letter-spacing: .14em; }
+.passport-feature-list { margin-top: 14px; background: rgba(255,255,255,.55); border: 1px solid rgba(16, 26, 34, .1); padding: 6px 20px; }
+.passport-feature-list > div { display: flex; gap: 17px; align-items: center; padding: 11px 0; border-bottom: 1px solid rgba(16, 26, 34, .1); }
+.passport-feature-list > div:last-child { border-bottom: 0; }
+.passport-feature-list > div > span { color: #0584a4; font: 700 .8rem var(--font-display); }
+.passport-feature-list p { margin: 0; display: grid; gap: 2px; color: #1c303b; font-size: .88rem; }
+.passport-feature-list small { color: #657985; font-size: .78rem; }
+
+/* METHOD */
+.method-list { border-top: 1px solid #cbd5da; }
+.method-step { display: grid; grid-template-columns: 62px minmax(0, 1fr) 190px; gap: 24px; align-items: center; padding: 22px 8px; border-bottom: 1px solid #cbd5da; }
+.method-step > span { color: #078eaf; font: 700 1.15rem var(--font-display); }
+.method-step h3 { margin: 0 0 3px; font: 700 1.55rem/1 var(--font-display); }
+.method-step p { margin: 0; color: #60737d; font-size: .93rem; }
+.method-step small { color: #71838c; font: 700 .65rem var(--font-display); letter-spacing: .12em; text-align: right; }
+
+/* EVIDENCE */
+.evidence-layout { display: grid; grid-template-columns: minmax(240px, .74fr) minmax(0, 1.26fr); gap: 70px; align-items: start; }
+.evidence-intro { position: sticky; top: 120px; }
+.evidence-intro h2 { margin-bottom: 22px; }
+.evidence-intro > p:not(.eyebrow) { color: #9bacb5; line-height: 1.7; }
+.evidence-small { border-left: 2px solid var(--gmd-yellow); padding-left: 14px; margin-top: 25px; font-size: .82rem; }
+.evidence-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.evidence-card { min-height: 235px; display: flex; flex-direction: column; align-items: flex-start; padding: 23px; background: #13222c; border: 1px solid rgba(218, 232, 238, .12); }
+.evidence-card h3 { margin: 23px 0 9px; font: 700 1.5rem/1 var(--font-display); }
+.evidence-card p { margin: 0 0 20px; color: #9aabb4; font-size: .9rem; line-height: 1.6; }
+.evidence-card .text-link { margin-top: auto; color: var(--gmd-cyan-light); }
+.evidence-foot { margin-top: auto; color: #788d97; font-size: .75rem; }
+
+/* FOUNDER */
+.founder-layout { display: grid; grid-template-columns: .72fr 1.28fr; gap: 85px; align-items: center; }
+.founder-mark { min-height: 320px; display: flex; flex-direction: column; justify-content: center; align-items: center; background: #e5ecef; border: 1px solid #cbd8de; color: #11232d; position: relative; overflow: hidden; }
+.founder-mark::before, .founder-mark::after { content: ""; position: absolute; width: 260px; height: 260px; border: 1px solid rgba(0, 137, 175, .17); border-radius: 50%; }
+.founder-mark::after { width: 190px; height: 190px; }
+.founder-mark span, .founder-mark strong, .founder-mark small { position: relative; z-index: 1; }
+.founder-mark span { color: #087e9f; font: 700 1rem var(--font-display); }
+.founder-mark strong { font: 900 5rem/.95 var(--font-display); letter-spacing: -.04em; }
+.founder-mark small { color: #0788a9; font: 700 .58rem var(--font-display); letter-spacing: .17em; }
+.founder-copy h2 { margin-bottom: 24px; }
+.founder-copy h3 { margin: 0 0 14px; font: 700 1.55rem var(--font-display); }
+.founder-copy h3 span { color: #6d7e87; font-size: 1.1rem; font-weight: 500; }
+.founder-copy > p:not(.eyebrow) { color: #526773; line-height: 1.75; }
+.experience-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.experience-tags span { padding: 7px 11px; border: 1px solid #bccbd1; color: #3a535f; font-size: .78rem; font-weight: 700; }
+
+/* FAQ */
+.faq-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 72px; align-items: start; }
+.faq-layout .section-heading { margin: 0; }
+.faq-list details { border-bottom: 1px solid #c7d2d7; padding: 18px 0; }
+.faq-list details:first-child { border-top: 1px solid #c7d2d7; }
+.faq-list summary { list-style: none; cursor: pointer; position: relative; padding-right: 36px; color: #172731; font: 700 1.2rem var(--font-display); }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; position: absolute; top: -4px; right: 4px; color: #078eaf; font: 500 1.7rem var(--font-body); }
+.faq-list details[open] summary::after { content: "−"; }
+.faq-list details p { margin: 13px 34px 0 0; color: #586d77; font-size: .92rem; line-height: 1.7; }
+
+/* CONTACT & FOOTER */
+.contact-layout { display: grid; grid-template-columns: 1.1fr .9fr; gap: 90px; align-items: center; }
+.contact-copy h2 { max-width: 610px; margin-bottom: 20px; }
+.contact-copy > p:not(.eyebrow) { max-width: 600px; color: #a4b4bc; font-size: 1.1rem; line-height: 1.7; }
+.contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 29px; }
+.contact-card { background: #14232e; border: 1px solid rgba(0, 166, 214, .3); padding: 30px; box-shadow: var(--shadow); }
+.contact-card-label { margin: 0 0 17px; color: var(--gmd-cyan-light); font: 700 .7rem var(--font-display); letter-spacing: .15em; }
+.contact-card h3 { margin: 0 0 10px; font: 700 1.9rem/1 var(--font-display); }
+.contact-card > p:not(.contact-card-label) { margin: 0 0 20px; color: #99aab3; font-size: .88rem; line-height: 1.6; }
+.booking-link { display: flex; justify-content: space-between; gap: 14px; padding: 13px 0; border-top: 1px solid var(--gmd-line); border-bottom: 1px solid var(--gmd-line); color: var(--gmd-cyan-light); font-weight: 700; }
+.contact-detail { display: flex; justify-content: space-between; gap: 16px; padding-top: 17px; color: #dae5e9; font-size: .87rem; }
+.contact-detail span { color: #7f949f; font: 700 .66rem var(--font-display); letter-spacing: .12em; }
+.contact-detail a:hover { color: var(--gmd-cyan-light); }
+.site-footer { background: #060c11; border-top: 1px solid var(--gmd-line); }
+.footer-main { display: flex; align-items: center; gap: 32px; padding: 30px 0; }
+.footer-brand { width: 86px; display: block; }
+.footer-brand img { width: 86px; height: auto; }
+.footer-main > p { margin: 0; color: #7f9099; font-size: .85rem; }
+.footer-links { margin-left: auto; display: flex; gap: 22px; color: #a5b3ba; font-size: .82rem; }
+.footer-links a:hover { color: var(--gmd-cyan-light); }
+.footer-bottom { border-top: 1px solid var(--gmd-line); padding: 14px 0 18px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: #667780; font-size: .73rem; }
+
+@media (max-width: 980px) {
+  .hero-layout, .passport-layout { grid-template-columns: 1fr 1fr; gap: 34px; }
+  .evidence-layout, .founder-layout { gap: 42px; }
+  .contact-layout { gap: 40px; }
+}
+@media (max-width: 760px) {
+  .hero { padding-top: 62px; min-height: 0; }
+  .hero-layout, .passport-layout, .evidence-layout, .founder-layout, .faq-layout, .contact-layout { grid-template-columns: 1fr; }
+  .hero-layout { gap: 34px; }
+  .hero-copy h1 { font-size: clamp(3rem, 13vw, 4.6rem); }
+  .hero-facts { gap: 18px; }
+  .hero-ribbon { padding-top: 34px; gap: 11px; }
+  .hero-ribbon span { font-size: .61rem; }
+  .problem-grid, .capability-grid, .evidence-cards { grid-template-columns: 1fr; }
+  .problem-card { min-height: 0; }
+  .capability-card { min-height: 0; }
+  .deliverable { margin-top: 24px; }
+  .passport-copy h2 { font-size: 4.6rem; }
+  .method-step { grid-template-columns: 42px minmax(0,1fr); gap: 14px; }
+  .method-step small { grid-column: 2; text-align: left; }
+  .evidence-intro { position: static; }
+  .founder-mark { min-height: 220px; }
+  .faq-layout { gap: 34px; }
+  .contact-card { padding: 23px; }
+  .footer-main { flex-wrap: wrap; gap: 18px; }
+  .footer-links { width: 100%; margin-left: 0; flex-wrap: wrap; }
+}
+@media (max-width: 440px) {
+  .hero-actions, .contact-actions { flex-direction: column; align-items: stretch; }
+  .button { width: 100%; }
+  .passport-flow { gap: 8px; }
+  .passport-flow span { font-size: .75rem; }
+  .contact-detail { flex-direction: column; gap: 4px; }
+}
+
+/* Embedded product demonstrations */
+.demo-showcase-heading{max-width:820px;margin:0 auto 2rem;text-align:left}
+.demo-showcase-heading h2{margin:.35rem 0 .7rem}
+.demo-showcase-heading h2 span{color:var(--cyan,#00B4D8)}
+.embedded-demo-frame{border:1px solid rgba(0,180,216,.28);border-radius:14px;overflow:hidden;background:#07111c;box-shadow:0 24px 70px rgba(0,0,0,.28)}
+.embedded-demo-topbar{display:flex;justify-content:space-between;gap:1rem;padding:12px 16px;background:#0b1925;color:#00c8e8;font:700 10px/1.2 'JetBrains Mono',monospace;letter-spacing:.08em}
+.embedded-demo-frame iframe{display:block;width:100%;height:780px;border:0;background:#07111c}
+.embedded-demo-frame-dark iframe{height:820px}
+.demo-open-link{display:flex;justify-content:flex-end;margin-top:1rem}
+@media(max-width:760px){.embedded-demo-frame iframe{height:760px}.embedded-demo-frame-dark iframe{height:780px}.embedded-demo-topbar{font-size:8px;flex-direction:column;gap:5px}.demo-showcase-heading{padding:0 2px}}
+
+/* GMD portfolio imagery */
+.founder-photo{margin:0;max-width:430px;position:relative;overflow:hidden;background:#101820;border:1px solid rgba(0,190,220,.35)}
+.founder-photo img{display:block;width:100%;height:100%;max-height:590px;object-fit:cover;object-position:center 28%;filter:saturate(.82)}
+.founder-photo figcaption{padding:12px 16px;color:#fff;background:#101820;border-top:2px solid #00b9d6;font-size:.82rem;letter-spacing:.04em}
+.project-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:34px}
+.project-card{margin:0;background:#fff;border:1px solid rgba(10,25,38,.12);box-shadow:0 14px 34px rgba(5,18,30,.08);overflow:hidden}
+.project-card-wide{grid-column:1/-1}
+.project-card img{display:block;width:100%;height:auto;object-fit:contain;background:#f4f6f7}
+.project-card figcaption{display:flex;flex-direction:column;gap:5px;padding:15px 18px;border-top:2px solid #00b9d6}
+.project-card figcaption strong{font-size:1rem;color:#111e29}
+.project-card figcaption span,.project-note{font-size:.85rem;color:#53616b}
+.project-note{margin-top:18px}
+@media(max-width:700px){.project-gallery{grid-template-columns:1fr}.project-card-wide{grid-column:auto}.founder-photo{max-width:100%}}
+
+/* Layout editorial: títulos a la izquierda, evidencia visual a la derecha */
+#necesidades .section-heading-split{margin-bottom:34px}
+#necesidades .problem-card{position:relative;min-height:285px;padding:27px 25px 24px;background:linear-gradient(145deg,#fff 0%,#f1f6f8 100%);border:1px solid #cbd9df;border-top:3px solid #00aeca;box-shadow:0 14px 32px rgba(10,32,45,.07);display:flex;flex-direction:column;align-items:flex-start;transition:transform .22s ease,box-shadow .22s ease}
+#necesidades .problem-card:hover{transform:translateY(-5px);box-shadow:0 20px 38px rgba(10,32,45,.12)}
+#necesidades .card-number{color:#0785a3;font:700 .72rem var(--font-display);letter-spacing:.16em}
+#necesidades .line-icon{width:48px;height:48px;margin:23px 0 14px;display:grid;place-items:center;border:1px solid rgba(0,174,202,.35);background:#e4f5f8;color:#0785a3;font-size:1.7rem}
+#necesidades .problem-card h3{font:700 1.55rem/1.08 var(--font-display);color:#122733;margin:0 0 12px}
+#necesidades .problem-card p{color:#5b6d76;font-size:.92rem;line-height:1.6;margin:0 0 20px}
+#necesidades .problem-card .text-link{margin-top:auto;color:#087f9f}
+.project-showcase-layout{display:grid;grid-template-columns:minmax(250px,.72fr) minmax(0,1.28fr);gap:54px;align-items:start}
+.project-showcase-copy{position:sticky;top:110px}
+.project-showcase-copy h2{font:800 clamp(2.7rem,4.5vw,4.1rem)/.98 var(--font-display);letter-spacing:-.02em;color:#10232e;margin:0 0 20px}
+.project-showcase-copy h2 span{color:#0786a5}
+.project-showcase-copy .section-intro{color:#586c76;line-height:1.7;margin-bottom:32px}
+.project-index{display:flex;gap:13px;align-items:center;padding:13px 0;border-top:1px solid #d4dfe3;color:#52636d;font:700 .7rem var(--font-display);letter-spacing:.1em}
+.project-index span{color:#0797b6;font-size:1rem}
+.project-gallery{margin-top:0;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.project-card-wide{grid-column:1/-1}
+.project-card img{max-height:290px;object-fit:contain}
+.project-card:not(.project-card-wide) img{max-height:180px}
+.project-card figcaption{padding:12px 14px}
+.project-note{grid-column:2;margin:0}
+.asset-showcase-layout{display:grid;grid-template-columns:minmax(270px,.78fr) minmax(0,1.22fr);gap:48px;align-items:start}
+.demo-showcase-heading{max-width:none;margin:0;text-align:left}
+.demo-showcase-heading h2{font:800 clamp(3.1rem,5vw,4.8rem)/.92 var(--font-display);letter-spacing:-.025em}
+.demo-showcase-heading h3{font:700 1.45rem/1.15 var(--font-display);color:#1c3541;margin:14px 0}
+.demo-showcase-heading>p:not(.eyebrow):not(.product-kicker):not(.demo-disclaimer){color:#566b75;line-height:1.7}
+.audit-readiness-points{list-style:none;padding:0;margin:22px 0;color:#304852;display:grid;gap:10px;font-size:.9rem}
+.audit-readiness-points li{position:relative;padding-left:22px}
+.audit-readiness-points li:before{content:"✓";position:absolute;left:0;color:#078eaf;font-weight:800}
+.asset-integrity-embedded{margin:0;min-width:0}
+.asset-integrity-embedded iframe{height:690px}
+.passport-demo-side{min-width:0}
+.passport-embedded iframe{height:620px}
+.passport-feature-list{margin-top:16px}
+.demo-direct-link{display:inline-block;margin-top:15px}
+@media(max-width:980px){.project-showcase-layout,.asset-showcase-layout{grid-template-columns:1fr;gap:30px}.project-showcase-copy{position:static}.project-note{grid-column:1}.passport-embedded iframe{height:600px}}
+@media(max-width:760px){#necesidades .problem-card{min-height:0}.project-gallery{grid-template-columns:1fr}.project-card-wide{grid-column:auto}.project-card img,.project-card:not(.project-card-wide) img{max-height:none}.asset-integrity-embedded iframe{height:640px}.passport-embedded iframe{height:580px}.demo-showcase-heading h2{font-size:3.4rem}}
+
+/* CAPACIDADES GMD — fotografía industrial como textura de fondo */
+.capability-card.capability-bg {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: #0c1a24;
+  background-position: center;
+  background-size: cover;
+}
+.capability-card.capability-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(112deg, rgba(5,13,20,.94) 0%, rgba(8,22,31,.88) 48%, rgba(8,22,31,.66) 100%);
+  pointer-events: none;
+}
+.capability-bg-diagnostic { background-image: url("../assets/img/service-industrial-diagnostic.webp"); }
+.capability-bg-passport { background-image: url("../assets/img/service-machine-passport.webp"); }
+.capability-bg-integrity { background-image: url("../assets/img/service-asset-integrity.webp"); }
+.capability-bg-engineering { background-image: url("../assets/img/service-engineering.webp"); }
+.capability-card.capability-bg > * { position: relative; z-index: 1; }
+.capability-card.capability-bg .capability-top { border-bottom-color: rgba(220,233,239,.22); }
+.capability-card.capability-bg .capability-summary,
+.capability-card.capability-bg li,
+.capability-card.capability-bg .deliverable { color: #d1dce1; }
+.capability-card.capability-bg .deliverable { border-top-color: rgba(220,233,239,.22); }
+.capability-card.capability-bg .deliverable b { color: #fff; }
+.capability-card.capability-bg .capability-mark { color: #b4c5ce; }
+.capability-card.capability-bg .capability-id { color: #53d9f2; }
+.capability-card.capability-bg h3 { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,.45); }
+.capability-card.capability-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(0deg, rgba(2,9,14,.36), transparent 42%);
+  pointer-events: none;
+}
+/* Perfil del fundador — mosaico fotográfico con momentos reales de trabajo */
+.founder-photo-mosaic { min-width: 0; margin: 0; }
+.founder-photo-grid {
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 7px;
+  aspect-ratio: 1 / 1.12;
+  overflow: hidden;
+  background: #0b1821;
+  border: 1px solid rgba(0,166,214,.3);
+  box-shadow: 0 20px 42px rgba(13,35,47,.16);
+}
+.founder-photo-grid img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  filter: saturate(.82) contrast(1.04);
+}
+.founder-photo-grid .founder-photo-main { grid-row: 1 / span 2; }
+.founder-photo-mosaic figcaption {
+  margin-top: 10px;
+  color: #637781;
+  font-size: .76rem;
+  letter-spacing: .04em;
+}
+@media (max-width: 760px) {
+  .founder-photo-grid { aspect-ratio: 1.18 / 1; }
+}
+
+/* MACHINE PASSPORT — fotografías reales de la placa GMD */
+.passport-gallery-container{margin-top:clamp(34px,5vw,62px);position:relative;z-index:1}
+.passport-gallery-kicker{margin:0 0 12px;color:#087f9d;font:700 .68rem var(--font-display);letter-spacing:.18em}
+.passport-real-gallery{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:0}
+.passport-real-gallery figure{margin:0;min-width:0;overflow:hidden;border:1px solid rgba(0,166,214,.28);background:#0b1925;box-shadow:0 18px 38px rgba(13,38,50,.12)}
+.passport-real-gallery img{display:block;width:100%;aspect-ratio:2.05;object-fit:cover;object-position:center 52%;transition:transform .35s ease}
+.passport-real-gallery figure:hover img{transform:scale(1.025)}
+.passport-real-gallery figcaption{padding:10px 14px;color:#d8e5ea;font-size:.76rem;letter-spacing:.04em;background:#0b1925}
+@media(max-width:760px){.passport-gallery-container{margin-top:30px}.passport-real-gallery{grid-template-columns:1fr;gap:12px}.passport-real-gallery img{aspect-ratio:1.65}.passport-real-gallery figcaption{font-size:.7rem;padding:9px 11px}}

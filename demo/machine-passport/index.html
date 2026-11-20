@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090f15">
+  <title>Machine Passport | Demostración GMD</title>
+  <meta name="description" content="Demostración interactiva de la estructura propuesta para GMD Machine Passport. Datos ilustrativos, no productivos.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="demo-shell">
+    <header class="demo-header">
+      <div class="demo-brand">
+        <a href="../../index.html" class="back-link">← GMD</a>
+        <div>
+          <strong>MACHINE PASSPORT</strong>
+          <span>Prototipo interactivo · versión de demostración</span>
+        </div>
+      </div>
+      <span class="demo-state">DEMO / DATOS ILUSTRATIVOS</span>
+    </header>
+
+    <div class="demo-warning" role="note">
+      <b>Entorno demostrativo.</b> El activo, los datos, los documentos y los eventos que aparecen aquí son ficticios. Las acciones se simulan en el navegador: no hay autenticación, base de datos, almacenamiento permanente ni envío de alertas a una planta.
+    </div>
+
+    <main>
+      <section class="asset-overview">
+        <div class="asset-main panel">
+          <div class="machine-illustration" aria-hidden="true">
+            <svg viewBox="0 0 180 150" role="img" aria-label="Ilustración de prensa industrial">
+              <path d="M32 24h116v15H32zM43 39h94v86H43z" fill="#253845" stroke="#6b8998" stroke-width="3"/>
+              <path d="M57 49h66v12H57zM72 61h36v34H72zM59 98h62v8H59z" fill="#0d1b24" stroke="#76a1b3" stroke-width="2"/>
+              <path d="M22 126h136v9H22zM52 125V112m76 13v-13" stroke="#dcb33d" stroke-width="5"/>
+              <path d="M80 14h20v10H80zM87 14V5h6v9" fill="#dcb33d"/>
+              <circle cx="48" cy="46" r="3" fill="#dcb33d"/><circle cx="132" cy="46" r="3" fill="#dcb33d"/>
+            </svg>
+            <span>ACTIVO DE EJEMPLO</span>
+          </div>
+          <div class="asset-copy">
+            <p class="eyebrow">ACTIVO DIGITAL IDENTIFICADO</p>
+            <h1>Prensa hidráulica HP-600</h1>
+            <p class="asset-id">GMD-DEMO-001 <span>·</span> QR-HP600-01</p>
+            <p class="muted">Ejemplo ficticio utilizado para mostrar cómo podrían organizarse identidad, documentación y evidencia alrededor de un activo.</p>
+            <div class="metric-grid">
+              <div><b>7</b><span>elementos de evidencia de ejemplo</span></div>
+              <div><b>6 / 7</b><span>datos marcados como verificados en la demo</span></div>
+              <div><b>1</b><span>documento con discrepancia</span></div>
+              <div><b>Alta</b><span>criticidad ilustrativa</span></div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="panel identity-panel">
+          <div class="panel-head"><h2>Identidad física</h2><span class="tag ok">EJEMPLO</span></div>
+          <div class="data-row"><span>Fotografía maestra</span><b class="tag ok">REGISTRADA</b></div>
+          <div class="data-row"><span>Placa / número de serie</span><b class="tag ok">COINCIDE</b></div>
+          <div class="data-row"><span>Ubicación del QR</span><b class="tag ok">REGISTRADA</b></div>
+          <div class="data-row"><span>Manual principal</span><b class="tag warn">REVISAR</b></div>
+          <div class="notice"><b>Discrepancia ilustrativa:</b> el documento agregado está identificado como HP-500, mientras que el activo del ejemplo es HP-600. La demostración lo deja señalado en lugar de presentarlo como información validada.</div>
+        </aside>
+      </section>
+
+      <section class="role-bar panel" aria-label="Cambiar vista de demostración">
+        <div><span class="eyebrow">VISTA SEGÚN PERFIL</span><small>La selección sólo cambia el mensaje de esta demostración.</small></div>
+        <div class="role-buttons">
+          <button class="role-button is-active" data-role="operador">Operación</button>
+          <button class="role-button" data-role="mantenimiento">Mantenimiento</button>
+          <button class="role-button" data-role="gerencia">Gerencia</button>
+          <button class="role-button" data-role="auditor">Auditoría</button>
+          <button class="button button-accent" id="simulate-scan">Simular escaneo QR</button>
+        </div>
+      </section>
+
+      <section class="panel workspace">
+        <div class="tabs" role="tablist" aria-label="Secciones del expediente">
+          <button class="tab is-active" role="tab" aria-selected="true" aria-controls="tab-overview" id="tab-button-overview" data-tab="overview">Resumen</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="tab-passport" id="tab-button-passport" data-tab="passport">Expediente</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="tab-review" id="tab-button-review" data-tab="review">Revisión guiada</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="tab-capture" id="tab-button-capture" data-tab="capture">Captura</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="tab-trust" id="tab-button-trust" data-tab="trust">Calidad de datos</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="tab-history" id="tab-button-history" data-tab="history">Historial</button>
+        </div>
+
+        <div class="tab-panel is-active" id="tab-overview" role="tabpanel" aria-labelledby="tab-button-overview">
+          <div class="panel-title"><div><p class="eyebrow">01 / RESUMEN</p><h2>¿Estoy consultando el activo correcto?</h2></div><span class="tag ok">COINCIDENCIA DE EJEMPLO</span></div>
+          <div class="detail-grid">
+            <div><span>Fabricante</span><b>HydroTech Industrial</b></div>
+            <div><span>Modelo</span><b>HP-600</b></div>
+            <div><span>Número de serie</span><b>SN-45871</b></div>
+            <div><span>Ubicación</span><b>Línea de formado · Estación 04</b></div>
+          </div>
+          <div class="info-note">La ficha de ejemplo vincula el activo con una ubicación física y un identificador QR. En un proyecto real estos datos deben levantarse y verificarse con el cliente.</div>
+        </div>
+
+        <div class="tab-panel" id="tab-passport" role="tabpanel" aria-labelledby="tab-button-passport" hidden>
+          <div class="panel-title"><div><p class="eyebrow">02 / EXPEDIENTE</p><h2>Información asociada al activo</h2></div><span class="tag warn">DATOS FICTICIOS</span></div>
+          <div class="detail-grid">
+            <div><span>Estado de operación</span><b class="text-green">Operativo · ilustrativo</b></div>
+            <div><span>Última revisión de ejemplo</span><b>30 ago 2026</b></div>
+            <div><span>Documentación crítica</span><b class="text-yellow">1 elemento por revisar</b></div>
+            <div><span>Procedimiento</span><b>Referencia disponible en demo</b></div>
+          </div>
+          <div class="document-list">
+            <div><span class="file-mark">PDF</span><p><b>Manual hidráulico</b><small>Documento ficticio · modelo HP-500 · discrepancia identificada</small></p><span class="tag warn">REVISAR</span></div>
+            <div><span class="file-mark">DWG</span><p><b>Plano eléctrico</b><small>Referencia de ejemplo · revisión pendiente</small></p><span class="tag warn">PENDIENTE</span></div>
+            <div><span class="file-mark">PDF</span><p><b>Ficha técnica</b><small>Datos de demostración de HP-600</small></p><span class="tag ok">REGISTRADA</span></div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-review" role="tabpanel" aria-labelledby="tab-button-review" hidden>
+          <div class="panel-title"><div><p class="eyebrow">03 / REVISIÓN GUIADA</p><h2>Registrar una observación</h2></div><span class="tag">SIMULACIÓN LOCAL</span></div>
+          <p class="muted">La demostración no diagnostica fallas ni sustituye procedimientos autorizados. Sólo ilustra cómo un usuario podría registrar una observación para su revisión.</p>
+          <div id="review-start"><button class="button button-accent" id="start-review">Iniciar revisión de ejemplo</button></div>
+          <div id="review-flow" class="review-flow" hidden>
+            <p class="step-label">¿Qué observas?</p>
+            <div class="choice-grid">
+              <button class="observation-choice" data-observation="La máquina está encendida pero no inicia.">La máquina está encendida pero no inicia.</button>
+              <button class="observation-choice" data-observation="La máquina se detuvo durante operación.">La máquina se detuvo durante operación.</button>
+              <button class="observation-choice" data-observation="No hay alarma visible.">No hay alarma visible.</button>
+            </div>
+            <div class="selected-observation" id="selected-observation" hidden>
+              <b>Observación seleccionada</b><p id="observation-text"></p>
+              <button class="button button-accent" id="escalate-event">Simular escalamiento</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-capture" role="tabpanel" aria-labelledby="tab-button-capture" hidden>
+          <div class="panel-title"><div><p class="eyebrow">04 / CAPTURA</p><h2>Origen de la información</h2></div><span class="tag">EJEMPLO DE FIELD CAPTURE</span></div>
+          <div class="capture-grid">
+            <div><span class="capture-num">01</span><b>Vista general del activo</b><small>Referencia de fotografía maestra</small><span class="tag ok">REGISTRADA</span></div>
+            <div><span class="capture-num">02</span><b>Placa y número de serie</b><small>Identificación física</small><span class="tag ok">REGISTRADA</span></div>
+            <div><span class="capture-num">03</span><b>Contexto de ubicación</b><small>Línea y estación</small><span class="tag ok">REGISTRADO</span></div>
+            <div><span class="capture-num">04</span><b>Ubicación del QR</b><small>Referencia de instalación</small><span class="tag ok">REGISTRADA</span></div>
+            <div><span class="capture-num">05</span><b>Datos técnicos</b><small>Campos del activo de ejemplo</small><span class="tag ok">6 / 7</span></div>
+            <div><span class="capture-num">06</span><b>Documentos</b><small>Manual de HP-500 detectado</small><span class="tag warn">DISCREPANCIA</span></div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-trust" role="tabpanel" aria-labelledby="tab-button-trust" hidden>
+          <div class="panel-title"><div><p class="eyebrow">05 / CALIDAD DE DATOS</p><h2>La información no se valida por el solo hecho de cargarla.</h2></div><span class="tag warn">REVISIÓN DE EJEMPLO</span></div>
+          <div class="trust-list">
+            <div><span>Modelo HP-600</span><b class="tag ok">FUENTE REVISADA</b></div>
+            <div><span>Serie SN-45871</span><b class="tag ok">COINCIDENCIA FÍSICA</b></div>
+            <div><span>QR-HP600-01</span><b class="tag ok">UBICACIÓN REGISTRADA</b></div>
+            <div><span>Manual hidráulico HP-500</span><b class="tag bad">NO COINCIDE</b></div>
+            <div><span>Plano eléctrico</span><b class="tag warn">POR REVISAR</b></div>
+          </div>
+          <div class="info-note">Principio mostrado: conservar la fuente y el estado de revisión de cada dato; no marcar automáticamente como validado un documento que no corresponde al activo.</div>
+        </div>
+
+        <div class="tab-panel" id="tab-history" role="tabpanel" aria-labelledby="tab-button-history" hidden>
+          <div class="panel-title"><div><p class="eyebrow">06 / HISTORIAL</p><h2>Eventos de la sesión de demostración</h2></div><button class="button button-quiet" id="reset-demo">Reiniciar demo</button></div>
+          <ol class="timeline" id="timeline">
+            <li><b>Passport de ejemplo creado</b><small>Activo GMD-DEMO-001 · registro ficticio.</small></li>
+            <li><b>Identificador QR asociado</b><small>QR-HP600-01 · relación demostrativa.</small></li>
+            <li><b>Documento marcado para revisión</b><small>Manual HP-500 no coincide con modelo HP-600.</small></li>
+          </ol>
+        </div>
+      </section>
+
+      <footer class="demo-footer">
+        <span>GMD ENGINEERING SOLUTIONS · MACHINE PASSPORT MVP 1.0</span>
+        <span>Demo local · no usar como registro operativo</span>
+        <a href="../../index.html">Volver al sitio GMD ↑</a>
+      </footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
